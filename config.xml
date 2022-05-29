@@ -72,11 +72,10 @@
 
 
 	
+    <platform name="android">
+        <resource-file src="google-services.json" target="google-services.json" />
+    </platform>
 
-<config-file target="*-Info.plist" parent="CFBundleDevelopmentRegion" mode="replace">
-
-            <string>fr-FR</string>
-</config-file>
 
 
 <preference name="TopActivityIndicator" value="none"/>
