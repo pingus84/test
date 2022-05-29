@@ -4,15 +4,15 @@ workflows:
     environment:
       groups:
       # Add the group environment variables in Codemagic UI (either in Application/Team variables) - https://docs.codemagic.io/variables/environment-variable-groups/
-        - app_store_credentials # <-- (APP_STORE_CONNECT_ISSUER_ID, APP_STORE_CONNECT_KEY_IDENTIFIER, APP_STORE_CONNECT_PRIVATE_KEY)
+        - appstore_credentials # <-- (APP_STORE_CONNECT_ISSUER_ID, APP_STORE_CONNECT_KEY_IDENTIFIER, APP_STORE_CONNECT_PRIVATE_KEY)
           # APP_STORE_CONNECT_ISSUER_ID <-- Put your App Store Connect Issuer Id here 
           # APP_STORE_CONNECT_KEY_IDENTIFIER <-- Put your App Store Connect Key Identifier here 
           # APP_STORE_CONNECT_PRIVATE_KEY <-- Put your App Store Connect Private Key here
-        - certificate_credentials # <-- (CERTIFICATE_PRIVATE_KEY - Put your Certificate Private Key here)
+          # <-- (CERTIFICATE_PRIVATE_KEY - Put your Certificate Private Key here)
       vars:
-        XCODE_WORKSPACE: "platforms/ios/HelloCordova.xcworkspace" # <-- Put the name of your workspace here.
-        XCODE_SCHEME: "HelloCordova" # <-- Put the name of your scheme here.       
-        BUNDLE_ID: "io.codemagic.cordova" # <-- Put your Bundle Id here.
+        XCODE_WORKSPACE: "platforms/ios/Laser13.xcworkspace" # <-- Put the name of your workspace here.
+        XCODE_SCHEME: "Laser13" # <-- Put the name of your scheme here.       
+        BUNDLE_ID: "com.application.laser13" # <-- Put your Bundle Id here.
       xcode: latest
       node: v16.11.1
       npm: 6
@@ -100,8 +100,8 @@ workflows:
           # KEYSTORE_PASSWORD <-- Put your keystore password here
           # KEY_ALIAS_PASSWORD <-- Put your keystore alias password here
           # KEY_ALIAS <-- Put your keystore alias username here
-        - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS - Put your google-services.json here)
-        - other
+          # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS - Put your google-services.json here)
+        
       vars:
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       xcode: 12.4
