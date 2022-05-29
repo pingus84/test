@@ -71,7 +71,9 @@
 
 
 
-	
+	<platform name="ios">
+    <resource-file src="GoogleService-Info.plist" target="res/GoogleService-Info.plist" />
+</platform>
 	
 
 <config-file target="*-Info.plist" parent="CFBundleDevelopmentRegion" mode="replace">
