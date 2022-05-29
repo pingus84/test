@@ -24,7 +24,7 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-       <plugin name="cordova-plugin-fcm" source="npm"/>
+       <plugin name="cordova-plugin-fcm-ng" source="npm"/>
     <platform name="ios">
         <icon height="1024" src="res/icons/ios/icon-1024.png" width="1024" />
         <icon height="29" src="res/icons/ios/icon-small.png" width="29" />
@@ -72,7 +72,7 @@
 
 
 	<platform name="ios">
-    <resource-file src="GoogleService-Info.plist" target="res/GoogleService-Info.plist" />
+    <resource-file src="GoogleService-Info.plist" />
 </platform>
 	
 
