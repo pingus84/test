@@ -105,8 +105,8 @@ workflows:
       vars:
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       xcode: 12.4
-      node: v6.11.4
-      npm: 5.4.2     
+      node: 12
+      npm: 6 
     cache:
       cache_paths:
         - $CM_BUILD_DIR/node_modules
