@@ -114,7 +114,6 @@ workflows:
       - name: Install dependencies
         script: |
           npm install
-          npm update
           npm ci
           cvm install 9.0.0
           cvm use 9.0.0        
