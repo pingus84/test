@@ -104,9 +104,9 @@ workflows:
         
       vars:
         KEYSTORE_PATH: '/tmp/keystore.keystore'
-      xcode: latest
-      node: v16.11.1
-      npm: 6        
+      xcode: 12.4
+      node: 12
+      npm: 5.4.2     
     cache:
       cache_paths:
         - $CM_BUILD_DIR/node_modules
@@ -114,6 +114,7 @@ workflows:
       - name: Install dependencies
         script: |
           npm install
+          npm update
           npm ci
           cvm install 9.0.0
           cvm use 9.0.0        
