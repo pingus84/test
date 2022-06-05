@@ -16,8 +16,6 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
 	
-	<preference name="GRADLE_VERSION" value="4.0" />
-	    
 	    <preference name="phonegap-version" value="cli-8.0.0" /> 
     <preference name="android-minSdkVersion" value="16" />
  	<preference name="pgb-builder-version" value="2" />
@@ -47,9 +45,7 @@
         <allow-intent href="itms-apps:*" />
     </platform>
 
-    <engine name="android" spec="~7.0.0" />
-    <engine name="ios" spec="~4.5.4" />
-	
+
     <platform name="ios">
         <icon height="1024" src="res/icons/ios/icon-1024.png" width="1024" />
         <icon height="29" src="res/icons/ios/icon-small.png" width="29" />
