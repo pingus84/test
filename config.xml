@@ -43,7 +43,7 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-       <plugin name="cordova-plugin-fcm" source="npm"/>
+       <plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>
     <platform name="ios">
         <icon height="1024" src="res/icons/ios/icon-1024.png" width="1024" />
         <icon height="29" src="res/icons/ios/icon-small.png" width="29" />
@@ -73,6 +73,8 @@
         <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
     </platform>
     <platform name="android">
+	     <resource-file src="google-services.json" target="google-services.json" />
+ 
         <icon density="ldpi" src="res/icons/android/ldpi.png" />
         <icon density="mdpi" src="res/icons/android/mdpi.png" />
         <icon density="hdpi" src="res/icons/android/hdpi.png" />
