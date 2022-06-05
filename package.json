@@ -18,7 +18,6 @@
     "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-dialogs": "^2.0.2",
-    "cordova-plugin-fcm-with-dependecy-updated": "^7.8.0",
     "cordova-plugin-inappbrowser": "^5.0.0",
     "cordova-plugin-ios-non-exempt-encryption": "^1.0.0",
     "cordova-plugin-keyboard": "^1.2.0",
@@ -36,7 +35,6 @@
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-ios-non-exempt-encryption": {},
-      "cordova-plugin-fcm-with-dependecy-updated": {}
     },
     "platforms": [
       "ios",
