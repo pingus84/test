@@ -33,7 +33,10 @@
 
     <plugin name="cordova-plugin-ios-non-exempt-encryption" source="npm" />
 	
-    <plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>	
+    <plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>
+
+	
+	
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="30" />
@@ -44,6 +47,9 @@
         <allow-intent href="itms-apps:*" />
     </platform>
 
+    <engine name="android" spec="~7.0.0" />
+    <engine name="ios" spec="~4.5.4" />
+	
     <platform name="ios">
         <icon height="1024" src="res/icons/ios/icon-1024.png" width="1024" />
         <icon height="29" src="res/icons/ios/icon-small.png" width="29" />
@@ -99,14 +105,6 @@
   <preference name="target-device" value="handset" />
 	
 
-
-
-<preference name="TopActivityIndicator" value="none"/>
-
-<preference name="orientation" value="portrait" />
-
-    <preference name="exit-on-suspend" value="true" />	  
-  <preference name="target-device" value="handset" />
 
 	
 </widget>
