@@ -122,6 +122,7 @@ workflows:
           set -x
           cordova platform remove android --nosave
           cordova platform add android --confirm --no-interactive --noresources
+          cat package.json
       - name: Build Android
         script: |    
           set -x
