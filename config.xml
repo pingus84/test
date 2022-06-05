@@ -33,7 +33,7 @@
 
     <plugin name="cordova-plugin-ios-non-exempt-encryption" source="npm" />
 	
-    <plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>
+
 
 	
 	
