@@ -36,7 +36,7 @@
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-ios-non-exempt-encryption": {},
-      "cordova-plugin-fcm": {}
+      "cordova-plugin-fcm-with-dependecy-updated": {}
     },
     "platforms": [
       "ios",
