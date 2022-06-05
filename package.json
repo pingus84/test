@@ -34,7 +34,7 @@
       "cordova-plugin-keyboard": {},
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-ios-non-exempt-encryption": {},
+      "cordova-plugin-ios-non-exempt-encryption": {}
     },
     "platforms": [
       "ios",
