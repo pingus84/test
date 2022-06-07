@@ -4,15 +4,15 @@ workflows:
     environment:
       groups:
       # Add the group environment variables in Codemagic UI (either in Application/Team variables) - https://docs.codemagic.io/variables/environment-variable-groups/
-        - appstore_credentials # <-- (APP_STORE_CONNECT_ISSUER_ID, APP_STORE_CONNECT_KEY_IDENTIFIER, APP_STORE_CONNECT_PRIVATE_KEY)
+        - app_store_credentials # <-- (APP_STORE_CONNECT_ISSUER_ID, APP_STORE_CONNECT_KEY_IDENTIFIER, APP_STORE_CONNECT_PRIVATE_KEY)
           # APP_STORE_CONNECT_ISSUER_ID <-- Put your App Store Connect Issuer Id here 
           # APP_STORE_CONNECT_KEY_IDENTIFIER <-- Put your App Store Connect Key Identifier here 
           # APP_STORE_CONNECT_PRIVATE_KEY <-- Put your App Store Connect Private Key here
-          # <-- (CERTIFICATE_PRIVATE_KEY - Put your Certificate Private Key here)
+        - certificate_credentials # <-- (CERTIFICATE_PRIVATE_KEY - Put your Certificate Private Key here)
       vars:
-        XCODE_WORKSPACE: "platforms/ios/Laser13.xcworkspace" # <-- Put the name of your workspace here.
-        XCODE_SCHEME: "Laser13" # <-- Put the name of your scheme here.       
-        BUNDLE_ID: "com.application.laser13" # <-- Put your Bundle Id here.
+        XCODE_WORKSPACE: "platforms/ios/HelloCordova.xcworkspace" # <-- Put the name of your workspace here.
+        XCODE_SCHEME: "HelloCordova" # <-- Put the name of your scheme here.       
+        BUNDLE_ID: "io.codemagic.cordova" # <-- Put your Bundle Id here.
       xcode: latest
       node: v16.11.1
       npm: 6
@@ -93,8 +93,6 @@ workflows:
   android-workflow:
     name: Android workflow
     environment:
-      ndk: r22b
-      java: 1.8
       groups:
         # Add the group environment variables in Codemagic UI (either in Application/Team variables) - https://docs.codemagic.io/variables/environment-variable-groups/
         - keystore_credentials # <-- (Includes KEYSTORE, KEYSTORE_PASSWORD, KEY_ALIAS_PASSWORD, KEY_ALIAS)
@@ -102,13 +100,13 @@ workflows:
           # KEYSTORE_PASSWORD <-- Put your keystore password here
           # KEY_ALIAS_PASSWORD <-- Put your keystore alias password here
           # KEY_ALIAS <-- Put your keystore alias username here
-          # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS - Put your google-services.json here)
-        
+        - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS - Put your google-services.json here)
+        - other
       vars:
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       xcode: 12.4
       node: 12
-      npm: 6 
+      npm: 6        
     cache:
       cache_paths:
         - $CM_BUILD_DIR/node_modules
@@ -124,26 +122,24 @@ workflows:
           set -x
           cordova platform remove android --nosave
           cordova platform add android --confirm --no-interactive --noresources
-          cat package.json
       - name: Build Android
         script: |    
           set -x
           set -e
-          cordova build android --no-interactive
-          #cordova build android --release --no-interactive --prod --device
+          cordova build android --release --no-interactive --prod --device
           echo $KEYSTORE | base64 --decode > $KEYSTORE_PATH
           UNSIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
           jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore "${KEYSTORE_PATH}" -storepass "${KEYSTORE_PASSWORD}" -keypass "${KEY_ALIAS_PASSWORD}" "${UNSIGNED_APK_PATH}" "${KEY_ALIAS}"
           mv $UNSIGNED_APK_PATH $(echo $UNSIGNED_APK_PATH | sed 's/-unsigned//')
     artifacts:
-      - platforms/android/app/build/outputs/**/*.aab
       - platforms/android/app/build/outputs/**/*.apk
       - platforms/android/app/build/outputs/**/mapping.txt
     publishing:
         # See the following link for details about email publishing - https://docs.codemagic.io/publishing-yaml/distribution/#email
         email:
             recipients:
-                - laser13chambery@gmail.com
+                - user_1@example.com
+                - user_2@example.com
             notify:
               success: true     # To not receive a notification when a build succeeds
               failure: false    # To not receive a notification when a build fails
