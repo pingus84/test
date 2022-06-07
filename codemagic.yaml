@@ -100,8 +100,7 @@ workflows:
           # KEYSTORE_PASSWORD <-- Put your keystore password here
           # KEY_ALIAS_PASSWORD <-- Put your keystore alias password here
           # KEY_ALIAS <-- Put your keystore alias username here
-        - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS - Put your google-services.json here)
-        - other
+
       vars:
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       xcode: 12.4
