@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8">
+<meta name = "format-detection" content = "telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="language" content="fr-FR" />
+<title>Laser13</title>  
+  
+
+
+        <link rel="stylesheet" type="text/css" href="vendors/onsenui/css/onsenui.css"/>
+    
+     
+ 
+ <link rel="stylesheet" type="text/css" href="jquery.fb.albumbrowser.css" /> 
+       
+        <!-- Download also your onsen-css-components.css stylesheet using the integrated CSS Components Theme Roller
+        http://components.onsenui.io -->
+
+        <!--< <link rel="stylesheet" type="text/css" href="vendors/onsenui/css/onsen-css-components-blue-theme.css"/>-->
+        <!--<link rel="stylesheet" type="text/css" href="vendors/onsenui/css/onsen-css-components-default.css"/>-->
+      <link rel="stylesheet" type="text/css" href="vendors/onsenui/css/onsen-css-components.css"/> 
+    <link rel="stylesheet" type="text/css" href="vendors/onsenui/css/onsen-css-components-dark-theme.css"/> 
+        <!--<link rel="stylesheet" type="text/css" href="vendors/onsenui/css/onsen-css-components-sunshine-theme.css"/>-->
+        <!--<link rel="stylesheet" type="text/css" href="vendors/onsenui/css/onsen-css-components-purple-theme.css"/>-->
+
+        <!--   <link rel="stylesheet" type="text/css" href="css/style.css"/> -->
+
+		<script src="vendors/onsenui/js/angular/angular.js"></script>    
+  <script src="vendors/onsenui/js/onsenui.js"></script>    
+
+ <script src="js/index.js"></script>  
+ <script src="js/qrcode.js"></script>
+ <script src="cordova.js"></script>
+
+ <script src="js/jquery-1.11.1.min.js"></script> 
+
+ <script type="text/javascript" src="jquery.fb.albumbrowser.js"></script> 
+
+ <script type="text/javascript">
+
+        app.initialize();
+		 $.fx.off = true;
+		// maj();
+        </script>
+ <!--  
+ <script type='application/javascript' src='js/fastclick.js'></script>
+<script type='application/javascript'>
+window.addEventListener('load', function() {
+    new FastClick(document.body);
+}, false);
+</script>
+
+<!--<script src="js/My.js"></script> -->
+  
+</head>
+
+<body>    
+
+	 	<ons-navigator animation="none" animationOptions=" {duration: 0, delay: 0, timing: 'linear'}" var="appNavigator"> 
+ 
+  <ons-sliding-menu main-page="loginpage.html" menu-page="menu.html" side="left" max-slide-distance="80px" var="menu">
+</ons-sliding-menu>
+</ons-navigator> 
+
+
+
+<ons-template id="loginpage.html">
+<ons-page ng-controller="LoginController">
+
+
+	
+
+	<div style="text-align:center">
+	<img src="logo.png" />
+	</div>
+	
+
+
+    <div style="text-align: center; margin-top: 30px;" ng-show="chargement">
+
+	<ons-icon spin="true" icon="cog"></ons-icon> 
+  </div>
+
+
+
+
+  
+</ons-page>  
+</ons-template>
+
+
+
+<ons-template id="news.html">
+		<ons-page ng-controller="NewsController">
+			
+				   <ons-toolbar fixed-style>
+			  <div class="left">
+				<ons-toolbar-button ng-click="menu.toggleMenu()">
+				  <ons-icon icon="bars"></ons-icon>
+				</ons-toolbar-button>
+			  </div>
+			  <div class="center">News</div>
+			</ons-toolbar>
+			
+			
+			<div align="center" ng-show="chargnews">
+			<ons-icon size="35px" spin="true" icon="ion-load-d"></ons-icon> Chargement...
+			</div>
+			
+			<section style="padding: 10px;">
+				<div ng-repeat="new in news">
+				<ons-row style="padding: 0 0 10px 0;">
+					<ons-col>
+						<section style="padding: 0 10px 0 0;">
+						<img src= "{{new.photo}}" alt="{{new.titre}}" width="100%" ng-click="showDetail($index)"/>
+						<h3 class="title" ng-click="showDetail($index)">{{new.titre}}</h3>
+						
+<div style="width:95%;background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0)); margin-left:auto; margin-right:auto; margin-top:10px; margin-bottom:10px; height:1px;"></div>
+					
+						</section>
+					</ons-col>
+				</ons-row>
+				</div>
+			</section>
+
+			</ons-page>
+</ons-template>
+	
+
+
+
+
+<ons-template id="new.html">
+<ons-page ng-controller="NewController">
+    
+   <ons-toolbar fixed-style>
+    <div class="left">
+	
+	
+<ons-back-button animation: "none" >
+  Retour
+</ons-back-button>
+			
+			</div>
+			
+	<div class="center">News</div>
+    </ons-toolbar>
+
+    <img src="{{item.photo}}" width="100%"  alt="{{item.title}}"/>
+
+    <section style="padding: 10px;">
+    <h2 class="title">{{item.titre}}</h2>
+    
+	
+	<div id="desc"> </div>
+	</section>
+    
+</ons-page>
+</ons-template>
+
+
+
+<ons-template id="tarif.html">
+<ons-page ng-controller="Tarifcontroller">
+    	
+      
+	   <ons-toolbar fixed-style>
+			  <div class="left">
+				<ons-toolbar-button ng-click="menu.toggleMenu()">
+				  <ons-icon icon="bars"></ons-icon>
+				</ons-toolbar-button>
+  </div>
+    <div class="center">Tarifs</div>
+    </ons-toolbar>
+			</div>
+
+	
+	<div id="desc"> </div>
+
+    
+</ons-page>
+</ons-template>
+
+
+
+<ons-template id="photo.html">
+<ons-page ng-controller="Photo">
+    
+      <ons-toolbar fixed-style>
+	 <div class="left">
+            <ons-toolbar-button onclick="menu.toggleMenu()">
+            <ons-icon icon="bars">
+            </ons-toolbar-button>
+            </div>
+			
+  
+    <div class="center"> {{photo}}</div>
+
+ <div class="right"  ng-show="fermeb">
+            <ons-toolbar-button ng-click="ferme();">
+            <ons-icon icon="times">
+            </ons-toolbar-button>
+            </div>
+	</ons-toolbar>
+
+
+			
+              <div align="center" class="fb-album-container"></div>
+  
+  
+    
+</ons-page>
+</ons-template>
+
+
+<ons-template id="contact.html">
+<ons-page ng-controller="Contact">
+    
+      <ons-toolbar fixed-style>
+	 <div class="left">
+            <ons-toolbar-button onclick="menu.toggleMenu()">
+            <ons-icon icon="bars">
+            </ons-toolbar-button>
+            </div>
+	  <div class="center"> Contact</div>
+    </ons-toolbar>
+
+
+	<!--	
+	<div style="text-align:center">
+	<img src="logo.png" />
+	</div>
+	-->
+  <div style="text-align: center; margin-top: 30px;">
+
+
+   <ons-icon size="35px" icon="clock-o"> <br>
+    <div class="button--blanc" id="horaire"> </div>
+  <br>
+ 
+	 <ons-icon size="35px" icon="phone"> <br>
+     <button class="button--quiet forgot-password" id="tel" ng-click="tel();"></button>
+  <br>
+
+	<ons-icon size="35px" icon="map-marker"> <br>
+	    <button class="button--quiet forgot-password" id="map" ng-click="map();"></button>
+<br>
+		
+			<ons-icon size="35px" icon="envelope"> <br>
+	    <button class="button--quiet forgot-password" id="mail" ng-click="mail();"></button>
+
+	<br>
+			<ons-icon size="35px" icon="bus"><br>
+	    <button class="button--blanc" id="bus" ng-click=""></button>
+
+		
+		</div>
+
+
+    
+</ons-page>
+</ons-template>
+
+
+<ons-template id="Compte.html">
+<ons-page ng-controller="Comptecontroller">
+    
+  <ons-toolbar fixed-style>
+	<div class="left">
+		
+<ons-back-button>
+  Retour
+</ons-back-button>
+
+     	</div>
+  
+    <div class="center"> Profil</div>
+	
+    </ons-toolbar>
+
+  <div style="text-align: center; margin-top: 30px; margin-right: 30px;">
+
+	<table align="center" style="text-align: right;">
+   <tr>
+       <td>Pseudo* : </td>
+       <td><input type="text" class="text-input--underbar" placeholder="Pseudo" value="" ng-model="pseudo"/></td>
+      </tr>
+	  
+   <tr>
+       <td>Email* :</td>
+       <td><input type="email" class="text-input--underbar" placeholder="Email" value="" ng-model="email"/></td>
+   </tr>
+   
+ <tr>
+       <td>Nom* : </td>
+       <td><input type="text" class="text-input--underbar" placeholder="Nom" value="" ng-model="nom"/></td>
+      </tr>
+   
+    <tr>
+       <td>Prenom* : </td>
+       <td><input type="text" class="text-input--underbar" placeholder="Prenom" value="" ng-model="prenom"/></td>
+      </tr>
+   
+    <tr>
+       <td>Date de Naissance : </td>
+       <td><input type="date" class="text-input--underbar" placeholder="__-__-____" value="" ng-model="dateanniv"/></td>
+      </tr>
+  
+   
+    <tr>
+       <td>Code postal : </td>
+       <td><input type="text" class="text-input--underbar" placeholder="Code postal" value="" ng-model="zip"/></td>
+      </tr>
+ 
+   
+    <tr>
+       <td>Mot de passe* : </td>
+       <td><input type="password" class="text-input--underbar" placeholder="Mot de passe" value="" ng-model="pass1"/></td>
+      </tr>
+   
+   
+    <tr>
+       <td>Confirmez le mot de passe* : </td>
+       <td><input type="password" class="text-input--underbar" placeholder="Mot de passe" value="" ng-model="pass2"/></td>
+      </tr>
+   
+   </table>
+
+
+<!--
+
+<input type="text" class="text-input--underbar" placeholder="Pseudo" value="" ng-model="pseudo"/><br>
+<input type="email" class="text-input--underbar" placeholder="Email" value="" ng-model="email"/><br>
+<input type="text" class="text-input--underbar" placeholder="Nom" value="" ng-model="nom"/><br>
+<input type="text" class="text-input--underbar" placeholder="Prenom" value="" ng-model="prenom"/><br>
+<input type="date" class="text-input--underbar" placeholder="Date de naissance" value="" ng-model="dateanniv"/><br>
+<input type="text" class="text-input--underbar" placeholder="Code postal" value="" ng-model="zip"/><br>
+
+<input type="password" class="text-input--underbar" placeholder="Mot de passe" value="" ng-model="pass1"/><br>
+<input type="password" class="text-input--underbar" placeholder="Confirmer mot de passe" value="" ng-model="pass2"/><br>
+
+-->
+
+ 	
+    <p style="margin-top: 30px;">
+     	<ons-button ng-click="cree()"> Cree le compte</ons-button>
+    </p>
+  </div>
+
+</ons-page>  
+</ons-template>
+<ons-template id="profil.html">
+<ons-page ng-controller="ProfilController">
+    
+	
+   <ons-toolbar fixed-style>
+	 <div class="left">
+     <ons-back-button animation: "none" >
+  Retour
+</ons-back-button>
+            </div>
+			
+  
+    <div class="center"> Profil</div>
+    </ons-toolbar>
+
+
+  
+  <div style="text-align: center; margin-top: 30px; margin-right: 30px;">
+
+	<table align="center" style="text-align: right;">
+   <tr>
+       <td>Pseudo* : </td>
+       <td><input type="text" class="text-input--underbar" placeholder="Pseudo" value="" ng-model="pseudo"/></td>
+      </tr>
+	  
+   <tr>
+       <td>Email* :</td>
+       <td><input type="email" class="text-input--underbar" disabled placeholder="Email" value="" ng-model="email"/></td>
+   </tr>
+   
+ <tr>
+       <td>Nom* : </td>
+       <td><input type="text" class="text-input--underbar" placeholder="Nom" value="" ng-model="nom"/></td>
+      </tr>
+   
+    <tr>
+       <td>Prenom* : </td>
+       <td><input type="text" class="text-input--underbar" placeholder="Prenom" value="" ng-model="prenom"/></td>
+      </tr>
+   
+    <tr>
+       <td>Date de Naissance : </td>
+       <td><input type="date" class="text-input--underbar" placeholder="__-__-____" value="" ng-model="dateanniv"/></td>
+      </tr>
+  
+   
+    <tr>
+       <td>Code postal : </td>
+       <td><input type="text" class="text-input--underbar" placeholder="Code postal" value="" ng-model="zip"/></td>
+      </tr>
+ 
+    <tr>
+       <td>Ancien mot de passe* : </td>
+       <td><input type="password" class="text-input--underbar" placeholder="Mot de passe" value="" ng-model="Ancienpass"/></td>
+      </tr>
+ 
+    <tr>
+       <td>Mot de passe* : </td>
+       <td><input type="password" class="text-input--underbar" placeholder="Mot de passe" value="" ng-model="pass1"/></td>
+      </tr>
+   
+   
+    <tr>
+       <td>Confirmez le mot de passe* : </td>
+       <td><input type="password" class="text-input--underbar" placeholder="Mot de passe" value="" ng-model="pass2"/></td>
+      </tr>
+	  
+   
+   </table>
+   
+  <!--
+<input type="text" class="text-input--underbar" placeholder="Pseudo" value="" ng-model="pseudo"/><br>
+<input type="email" class="text-input--underbar" placeholder="Email" disabled value="" ng-model="email"/><br>
+<input type="text" class="text-input--underbar" placeholder="Nom" value="" ng-model="nom"/><br>
+<input type="text" class="text-input--underbar" placeholder="Prenom" value="" ng-model="prenom"/><br>
+<input type="date" class="text-input--underbar" placeholder="Date de naissance" value="" ng-model="dateanniv"/><br>
+<input type="text" class="text-input--underbar" placeholder="Code postal" value="" ng-model="zip"/><br>
+<input type="password" class="text-input--underbar" placeholder="Ancien Mot de passe" value="" ng-model="Ancienpass"/><br>
+<input type="password" class="text-input--underbar" placeholder="Mot de passe" value="" ng-model="pass1"/><br>
+<input type="password" class="text-input--underbar" placeholder="Confirmer mot de passe" value="" ng-model="pass2"/><br>
+-->
+    <p style="margin-top: 30px;">
+     	<ons-button ng-click="maj()">Mettre à jour</ons-button>
+    </p>
+ 	
+    <p style="margin-top: 30px;">
+    
+<ons-button ng-click="deco()">Deconnexion</ons-button>
+    </p>
+	<br>
+	<br>
+	<br>
+	<a href="https://laser13.fr/privacy_policy.html"  class="button--quiet forgot-password" >Politique de confidentialité</a>
+  </div>
+
+</ons-page>    
+</ons-template>
+
+
+<ons-template id="fidelite.html">
+<ons-page ng-controller="Fidelite">
+
+    
+    <ons-toolbar fixed-style>
+	 <div class="left">
+            <ons-toolbar-button onclick="menu.toggleMenu()">
+            <ons-icon icon="bars"/>
+            </ons-toolbar-button>
+            </div>
+
+    <div class="center">Fidélité</div>
+    </ons-toolbar>
+
+<div ng-show="sfidelite">
+<div class="center" align="center">
+<br>
+Bonjour {{ pseudo }}
+<br>
+   Scannez ce code.
+<br>
+<br>
+<br>
+<br>
+
+<div align="center"  id="qrcode"></div>
+ <br>
+<br>
+<br>
+
+ <section style="margin: 0 5px"><ons-button ng-click="Fid()">Voir ma fidélité</ons-button></section>
+	
+
+<br>
+<br>	
+<br>	
+	
+
+  <button class="button--quiet forgot-password" ng-click="profil();">Mon Profil</button>
+ </div> 
+<br>
+</div>
+	
+ <div ng-show="slogin">	
+	<div style="text-align:center">
+	<img src="logo.png" />
+	</div>
+	
+  <div style="text-align: center; margin-top: 30px;">
+<input type="email" class="text-input--underbar" placeholder="Email" value="" ng-model="username"/>
+<br>
+<input type="password" class="text-input--underbar" placeholder="Password" value="" ng-model="password"/>	
+    <p style="margin-top: 30px;">
+     	<ons-button ng-click="log();">Connexion</ons-button>
+	
+    </p>
+	<br>
+	    <button class="button--quiet forgot-password" ng-click="creecompte();">Créer un compte</button>
+  <br>
+	    <button class="button--quiet forgot-password" ng-click="recupmail();">Mot de passe oublié ?</button>
+		
+			<br>
+			<br>
+			
+		<a href="https://laser13.fr/privacy_policy.html"  class="button--quiet forgot-password" >Politique de confidentialité</a>
+  </div>
+  </div>
+
+</ons-page>
+</ons-template>
+
+<ons-template id="menu.html">
+ <ons-list>
+	<ons-list-item onclick="menu.setMainPage('news.html', {closeMenu: true})">
+<div style="text-align:center">
+	<img src="logo.png" width="50px"/>
+	<ons-icon size="2x" icon="newspaper-o">
+	<font size="3"><br>News</font> 
+	</ons-icon>
+    </div>
+    </ons-list-item>
+    
+	
+	<ons-list-item onclick="menu.setMainPage('fidelite.html', {closeMenu: true})">
+				<div style="text-align:center">
+                <ons-icon size="2x" icon="address-card">
+				<font size="3"><br>Fidélité</font> 
+				</ons-icon>
+				</div>
+    </ons-list-item>
+	
+
+	<ons-list-item onclick="menu.setMainPage('photo.html', {closeMenu: true})">
+				<div style="text-align:center">
+                <ons-icon size="2x" icon="picture-o">
+				<font size="3"><br>Photos</font> 
+				</ons-icon>
+				</div>
+    </ons-list-item>
+
+	<ons-list-item onclick="menu.setMainPage('contact.html', {closeMenu: true})">
+				<div style="text-align:center">
+                <ons-icon size="2x" icon="envelope">
+				<font size="3"><br>Contact</font> 
+				</ons-icon>
+				</div>
+    </ons-list-item>	
+	
+	
+	<ons-list-item onclick="menu.setMainPage('tarif.html', {closeMenu: true})">
+				<div style="text-align:center">
+                <ons-icon size="2x" icon="eur">
+				<font size="3"><br>Tarifs</font> 
+				</ons-icon>
+				</div>
+    </ons-list-item>
+
+
+	</ons-list>
+
+	
+	</ons-template>
+
+
+	</body>
+  
+
+
+
+
+</html>
