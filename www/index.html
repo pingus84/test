@@ -185,34 +185,6 @@ window.addEventListener('load', function() {
 
 
 
-<ons-template id="photo.html">
-<ons-page ng-controller="Photo">
-    
-      <ons-toolbar fixed-style>
-	 <div class="left">
-            <ons-toolbar-button onclick="menu.toggleMenu()">
-            <ons-icon icon="bars">
-            </ons-toolbar-button>
-            </div>
-			
-  
-    <div class="center"> {{photo}}</div>
-
- <div class="right"  ng-show="fermeb">
-            <ons-toolbar-button ng-click="ferme();">
-            <ons-icon icon="times">
-            </ons-toolbar-button>
-            </div>
-	</ons-toolbar>
-
-
-			
-              <div align="center" class="fb-album-container"></div>
-  
-  
-    
-</ons-page>
-</ons-template>
 
 
 <ons-template id="contact.html">
@@ -542,13 +514,6 @@ Bonjour {{ pseudo }}
     </ons-list-item>
 	
 
-	<ons-list-item onclick="menu.setMainPage('photo.html', {closeMenu: true})">
-				<div style="text-align:center">
-                <ons-icon size="2x" icon="picture-o">
-				<font size="3"><br>Photos</font> 
-				</ons-icon>
-				</div>
-    </ons-list-item>
 
 	<ons-list-item onclick="menu.setMainPage('contact.html', {closeMenu: true})">
 				<div style="text-align:center">
