@@ -17,9 +17,6 @@
     <allow-intent href="geo:*" />
 	
 	
-	<engine name="android" spec="https://github.com/apache/cordova-android.git#5.1.1" />
-	
-	
 	    <preference name="phonegap-version" value="cli-8.0.0" /> 
 	<preference name="android-targetSdkVersion" value="30" />
     <preference name="android-minSdkVersion" value="16" />
