@@ -36,7 +36,10 @@
 	<plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>
 
 
-	
+	<platform name="android">
+   <preference name="Fullscreen" value="true" />
+</platform>
+
 	
     <platform name="android">
         <allow-intent href="market:*" />
