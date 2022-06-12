@@ -131,8 +131,8 @@ workflows:
         script: |    
           set -x
           set -e
-          #cordova build android --no-interactive
-          cordova build android --release --no-interactive --prod --device
+          cordova build android --no-interactive
+          #cordova build android --release --no-interactive --prod --device
           echo $KEYSTORE | base64 --decode > $KEYSTORE_PATH
           UNSIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
           jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore "${KEYSTORE_PATH}" -storepass "${KEYSTORE_PASSWORD}" -keypass "${KEY_ALIAS_PASSWORD}" "${UNSIGNED_APK_PATH}" "${KEY_ALIAS}"
