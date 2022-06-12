@@ -124,8 +124,8 @@ workflows:
           set -x
           cordova platform remove android --nosave
           cordova platform add android --confirm --no-interactive --noresources
-          #cordova plugin add cordova-android-support-gradle-release --variable ANDROID_SUPPORT_VERSION=27.0.0
-          #cordova run android -- --gradleArg=-PcdvMinSdkVersion=20
+          cordova plugin add cordova-android-support-gradle-release --variable ANDROID_SUPPORT_VERSION=27.0.0
+          cordova run android -- --gradleArg=-PcdvMinSdkVersion=20
           cat package.json
       - name: Build Android
         script: |    
