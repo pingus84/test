@@ -124,6 +124,7 @@ workflows:
           set -x
           cordova platform remove android --nosave
           cordova platform add android --confirm --no-interactive --noresources
+          cordova run android -- --gradleArg=-PcdvMinSdkVersion=20
           cat package.json
       - name: Build Android
         script: |    
