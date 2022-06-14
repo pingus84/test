@@ -130,7 +130,7 @@ workflows:
           set -x
           set -e
           #cordova run android --prod --release -- -- --gradleArg=-PcdvMinSdkVersion=20
-          cordova run android --release -- --keystore=android.keystore  --storePassword=laser13laser13 --alias=android-app-key --password=laser13laser13 --packageType=apk
+          cordova run android --release -- --gradleArg=-PcdvMinSdkVersion=20 --keystore=android.keystore  --storePassword=laser13laser13 --alias=android-app-key --password=laser13laser13 --packageType=apk
           #cordova build android --release --no-interactive --prod --device --gradleArg=-PcdvMinSdkVersion=20
           echo $KEYSTORE | base64 --decode > $KEYSTORE_PATH
           UNSIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
