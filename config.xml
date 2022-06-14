@@ -40,7 +40,8 @@
 	
     <plugin name="cordova-plugin-fcm-android" source="npm"/>
 
-
+    <engine name="android" spec="6.3.0" />
+    <engine name="ios" spec="4.5.4" />
 
 	
     <platform name="android">
