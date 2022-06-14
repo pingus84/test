@@ -127,7 +127,7 @@ workflows:
           cordova plugin add cordova-android-support-gradle-release --variable ANDROID_SUPPORT_VERSION=27.0.0
           cordova run android -- --gradleArg=-PcdvMinSdkVersion=20
           cat package.json
-    - name: Build Android
+      - name: Build Android
         script: |
           set -x
           set -e
