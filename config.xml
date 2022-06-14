@@ -46,8 +46,8 @@
     </platform>
 	
 	
-    <engine name="android" spec="~6.3.0" />
-    <engine name="ios" spec="~4.5.4" />
+    <engine name="android" spec="6.3.0" />
+    <engine name="ios" spec="4.5.4" />
 	<plugin name="cordova-plugin-firebase-messaging" spec="2.0.5" />
 	
     <plugin name="cordova-plugin-fcm" source="npm"/>
