@@ -36,16 +36,9 @@
     <plugin name="cordova-plugin-inappbrowser" source="npm" />
 
     <plugin name="cordova-plugin-ios-non-exempt-encryption" source="npm" />
+		
 	
-	   <platform name="android">
-        <resource-file src="google-services.json" target="res/google-services.json" />
-    </platform>
-    <platform name="ios">
-        <resource-file src="GoogleService-Info.plist" />
-    </platform>
-	
-	
-    <plugin name="cordova-plugin-fcm" source="npm"/>
+    <plugin name="cordova-plugin-fcm-android" source="npm"/>
 
 
 
