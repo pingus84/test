@@ -42,7 +42,7 @@
  
 	<plugin name="cordova-plugin-firebase-messaging"/>
 	
-    <plugin name="cordova-plugin-fcm" source="npm"/>
+    <plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>
 
 
 
