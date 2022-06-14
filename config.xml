@@ -37,7 +37,20 @@
 
     <plugin name="cordova-plugin-ios-non-exempt-encryption" source="npm" />
 	
-	<plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>
+	
+	    <platform name="android">
+        <resource-file src="google-services.json" target="google-services.json" />
+    </platform>
+    <platform name="ios">
+        <resource-file src="GoogleService-Info.plist" />
+    </platform>
+	
+	
+    <engine name="android" spec="~6.3.0" />
+    <engine name="ios" spec="~4.5.4" />
+	<plugin name="cordova-plugin-firebase-messaging" spec="2.0.5" />
+	
+    <plugin name="cordova-plugin-fcm" source="npm"/>
 
 
 
