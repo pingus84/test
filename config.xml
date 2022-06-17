@@ -25,9 +25,6 @@
 	
 	
 	
-    <platform name="android">
-        <resource-file src="google-services.json" target="google-services.json" />
-    </platform>
 	
     <plugin name="cordova-plugin-statusbar" source="npm" />
     <plugin name="cordova-plugin-console" source="npm"/>
@@ -39,9 +36,7 @@
 
     <plugin name="cordova-plugin-ios-non-exempt-encryption" source="npm" />
 	
-    <plugin name="cordova-plugin-firebase-messaging" />
-	
-    <plugin name="cordova-plugin-fcm" source="npm"/>
+    <plugin name="cordova-plugin-fcm-ng" source="npm"/>
 	
     <platform name="android">
         <allow-intent href="market:*" />
