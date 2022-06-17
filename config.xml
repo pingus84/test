@@ -38,7 +38,7 @@
 	
 
 	    <platform name="android">
-        <resource-file src="google-services.json" target="google-services.json" />
+      <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
 	
 	<plugin name="cordova-plugin-fcm-ng" source="npm">
