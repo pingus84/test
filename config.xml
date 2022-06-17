@@ -25,7 +25,9 @@
 	
 	
 	
-
+    <platform name="android">
+        <resource-file src="google-services.json" target="google-services.json" />
+    </platform>
 	
     <plugin name="cordova-plugin-statusbar" source="npm" />
     <plugin name="cordova-plugin-console" source="npm"/>
