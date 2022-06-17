@@ -41,12 +41,9 @@
       <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
 	
-	<plugin name="cordova-plugin-fcm-ng" source="npm">
-  <variable name="APP_DOMAIN" value="laser13.fr" />		
-    <variable name="PAGE_LINK_DOMAIN" value="laser13.page.link" />
-</plugin>
-
-	--variable PAGE_LINK_DOMAIN=value
+	<plugin name="cordova-plugin-firebase-messaging"/>
+	
+    <plugin name="cordova-plugin-fcm" source="npm"/>
 	
     <platform name="android">
         <allow-intent href="market:*" />
