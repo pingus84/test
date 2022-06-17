@@ -104,6 +104,7 @@ FCM.getToken(function(token){
 plateos=window.localStorage.getItem("os");
 window.localStorage.setItem("pushid", token);
 regid=token;
+alert(token);
  var user = " ";
   
 	 user = window.localStorage.getItem("user");
