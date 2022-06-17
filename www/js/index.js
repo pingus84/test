@@ -98,7 +98,7 @@ window.localStorage.setItem("os", plateos);
 
 
 	
-if(typeof(FCM) != 'undefined') {
+if(typeof(FCMPlugin) != 'undefined') {
 
 FCM.getToken(function(token){
 plateos=window.localStorage.getItem("os");
@@ -327,7 +327,7 @@ error: function(data) {
         
         }
          
-		if(typeof(FCM) != 'undefined') { 
+		if(typeof(FCMPlugin) != 'undefined') { 
 		 FCM.subscribeToTopic('laser13');
 			
 		}
@@ -610,7 +610,7 @@ window.localStorage.removeItem("pass");
 	
 	}});
 	
-if(typeof(FCM) != 'undefined') {
+if(typeof(FCMPlugin) != 'undefined') {
 FCM.unsubscribeFromTopic('laser13log');
 //	 var utilisateur=window.localStorage.getItem("user");
 	//	 FCM.subscribeToTopic(utilisateur);	
@@ -641,7 +641,7 @@ ons.notification.alert({
 	 
 $scope.deco = function() {
 //alert("kikoo");
-if(typeof(FCM) != 'undefined') {
+if(typeof(FCMPlugin) != 'undefined') {
 FCM.unsubscribeFromTopic('laser13log');
 		// var utilisateur=window.localStorage.getItem("user");
 		// FCM.subscribeToTopic(utilisateur);	
@@ -747,7 +747,7 @@ $scope.$apply(function() {
 		$scope.username=usersauv;
 		
 	
-			if(typeof(FCM) != 'undefined') { 
+			if(typeof(FCMPlugin) != 'undefined') { 
 		 FCM.subscribeToTopic('laser13log');
 		// var utilisateur=window.localStorage.getItem("user");
 		// FCM.subscribeToTopic(utilisateur);		
