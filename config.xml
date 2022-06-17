@@ -36,7 +36,13 @@
 
     <plugin name="cordova-plugin-ios-non-exempt-encryption" source="npm" />
 	
-    <plugin name="cordova-plugin-fcm-ng" source="npm"/>
+
+	<plugin name="cordova-plugin-fcm-ng" source="npm">
+  <variable name="APP_DOMAIN" value="laser13.fr" />		
+    <variable name="PAGE_LINK_DOMAIN" value="laser13.page.link" />
+</plugin>
+
+	--variable PAGE_LINK_DOMAIN=value
 	
     <platform name="android">
         <allow-intent href="market:*" />
