@@ -37,6 +37,10 @@
     <plugin name="cordova-plugin-ios-non-exempt-encryption" source="npm" />
 	
 
+	    <platform name="android">
+        <resource-file src="google-services.json" target="google-services.json" />
+    </platform>
+	
 	<plugin name="cordova-plugin-fcm-ng" source="npm">
   <variable name="APP_DOMAIN" value="laser13.fr" />		
     <variable name="PAGE_LINK_DOMAIN" value="laser13.page.link" />
