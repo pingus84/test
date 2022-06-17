@@ -27,7 +27,6 @@
     "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-dialogs": "^2.0.2",
-    "cordova-plugin-fcm-with-dependecy-updated": "^7.0.8",
     "cordova-plugin-inappbrowser": "^5.0.0",
     "cordova-plugin-ios-non-exempt-encryption": "^1.0.0",
     "cordova-plugin-keyboard": "^1.2.0",
@@ -46,14 +45,7 @@
         "OKHTTP_VERSION": "3.+"
       },
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-ios-non-exempt-encryption": {},
-      "cordova-plugin-fcm-with-dependecy-updated": {
-        "ANDROID_DEFAULT_NOTIFICATION_ICON": "@mipmap/ic_launcher",
-        "ANDROID_FCM_VERSION": "21.0.0",
-        "ANDROID_FIREBASE_BOM_VERSION": "26.0.0",
-        "ANDROID_GOOGLE_SERVICES_VERSION": "4.3.4",
-        "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0"
-      }
+      "cordova-plugin-ios-non-exempt-encryption": {}
     },
     "platforms": [
       "ios",
