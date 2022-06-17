@@ -100,7 +100,7 @@ window.localStorage.setItem("os", plateos);
 	
 if(1) {
 
-FCM.getToken(function(token){
+FCMPluginNG.getToken(function(token){
 plateos=window.localStorage.getItem("os");
 window.localStorage.setItem("pushid", token);
 regid=token;
@@ -125,7 +125,7 @@ success: function(data){
 });
 
 
-FCM.onTokenRefresh(function(token){
+FCMPluginNG.onTokenRefresh(function(token){
 plateos=window.localStorage.getItem("os");
 
 window.localStorage.setItem("pushid", token);
@@ -150,7 +150,7 @@ success: function(data){
 
 
 
-FCM.onNotification(function(data){
+FCMPluginNG.onNotification(function(data){
 //alert(JSON.stringify(data));
  if(data.wasTapped){
     
@@ -328,7 +328,7 @@ error: function(data) {
         }
          
 		if(1) { 
-		 FCM.subscribeToTopic('laser13');
+		 FCMPluginNG.subscribeToTopic('laser13');
 			
 		}
          //      $scope.letterLimit = NewsData.letterLimit;		 
@@ -611,7 +611,7 @@ window.localStorage.removeItem("pass");
 	}});
 	
 if(1) {
-FCM.unsubscribeFromTopic('laser13log');
+FCMPluginNG.unsubscribeFromTopic('laser13log');
 //	 var utilisateur=window.localStorage.getItem("user");
 	//	 FCM.subscribeToTopic(utilisateur);	
 }
@@ -748,7 +748,7 @@ $scope.$apply(function() {
 		
 	
 			if(1) { 
-		 FCM.subscribeToTopic('laser13log');
+		 FCMPluginNG.subscribeToTopic('laser13log');
 		// var utilisateur=window.localStorage.getItem("user");
 		// FCM.subscribeToTopic(utilisateur);		
 		}
