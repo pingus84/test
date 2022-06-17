@@ -36,8 +36,7 @@
     <plugin name="cordova-plugin-inappbrowser" source="npm" />
 
     <plugin name="cordova-plugin-ios-non-exempt-encryption" source="npm" />
-
-	
+    <plugin name="cordova-plugin-fcm" source="npm"/>	
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="30" />
