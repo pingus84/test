@@ -41,7 +41,7 @@
       <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
 	
-<plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>
+<plugin name="cordova-plugin-fcm-android" source="npm"/>
 	
     <platform name="android">
         <allow-intent href="market:*" />
