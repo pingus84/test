@@ -100,11 +100,10 @@ window.localStorage.setItem("os", plateos);
 	
 if(1) {
 
-FCMPluginNG.getToken(function(token){
+cordova.plugins.firebase.messaging.getToken().then(function(token) {
 plateos=window.localStorage.getItem("os");
 window.localStorage.setItem("pushid", token);
 regid=token;
-alert(token);
  var user = " ";
   
 	 user = window.localStorage.getItem("user");
@@ -124,8 +123,8 @@ success: function(data){
 	
 });
 
-
-FCMPluginNG.onTokenRefresh(function(token){
+/*
+FCM.onTokenRefresh(function(token){
 plateos=window.localStorage.getItem("os");
 
 window.localStorage.setItem("pushid", token);
@@ -147,10 +146,10 @@ success: function(data){
 }})
 
 });
+*/
 
-
-
-FCMPluginNG.onNotification(function(data){
+cordova.plugins.firebase.messaging.onMessage(function(data) {
+//FCM.onNotification(function(data){
 //alert(JSON.stringify(data));
  if(data.wasTapped){
     
@@ -328,7 +327,7 @@ error: function(data) {
         }
          
 		if(1) { 
-		 FCMPluginNG.subscribeToTopic('laser13');
+		 cordova.plugins.firebase.messaging.subscribe("laser13");
 			
 		}
          //      $scope.letterLimit = NewsData.letterLimit;		 
@@ -611,7 +610,7 @@ window.localStorage.removeItem("pass");
 	}});
 	
 if(1) {
-FCMPluginNG.unsubscribeFromTopic('laser13log');
+cordova.plugins.firebase.messaging.unsubscribe("laser13log");
 //	 var utilisateur=window.localStorage.getItem("user");
 	//	 FCM.subscribeToTopic(utilisateur);	
 }
@@ -642,7 +641,7 @@ ons.notification.alert({
 $scope.deco = function() {
 //alert("kikoo");
 if(1) {
-FCM.unsubscribeFromTopic('laser13log');
+cordova.plugins.firebase.messaging.unsubscribe("laser13log");
 		// var utilisateur=window.localStorage.getItem("user");
 		// FCM.subscribeToTopic(utilisateur);	
 }
@@ -748,7 +747,7 @@ $scope.$apply(function() {
 		
 	
 			if(1) { 
-		 FCMPluginNG.subscribeToTopic('laser13log');
+		 cordova.plugins.firebase.messaging.subscribe("laser13log");
 		// var utilisateur=window.localStorage.getItem("user");
 		// FCM.subscribeToTopic(utilisateur);		
 		}
