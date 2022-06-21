@@ -17,11 +17,7 @@ var regid;
 
 
 
-cordova.plugins.firebase.messaging.createChannel({
-    id: "News",
-    name: "Push News",
-    importance: 0
-});
+
 
 
 
@@ -109,6 +105,13 @@ window.localStorage.setItem("os", plateos);
 	
 if(1) {
 
+cordova.plugins.firebase.messaging.createChannel({
+    id: "News",
+    name: "Push News",
+    importance: 0
+});
+	
+	
 cordova.plugins.firebase.messaging.getToken().then(function(token) {
 alert(token);
 plateos=window.localStorage.getItem("os");
