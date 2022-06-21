@@ -109,6 +109,10 @@ if(1) {
    alert("permission");
 });
 
+	cordova.plugins.firebase.messaging.requestPermission({forceShow: true}).then(function() {
+   alert("You'll get foreground notifications when a push message arrives");
+});
+	
 cordova.plugins.firebase.messaging.createChannel({
     id: "News",
     name: "Push News",
