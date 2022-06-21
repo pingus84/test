@@ -39,7 +39,6 @@
     </platform>
 	
 		      
-	<plugin name="cordova-plugin-firebase-messaging" />
     <plugin name="cordova-plugin-fcm" source="npm"/>
 
 <config-file target="*-Info.plist" parent="CFBundleDevelopmentRegion" mode="replace">
