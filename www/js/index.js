@@ -98,9 +98,9 @@ window.localStorage.setItem("os", plateos);
 
 
 	
-if(typeof(FCMPlugin) != 'undefined') {
-
-FCMPlugin.getToken(function(token){
+if(typeof(FCMPluginNG) != 'undefined') {
+FCMPluginNG.getToken(function(token){
+	alert(token);
 plateos=window.localStorage.getItem("os");
 window.localStorage.setItem("pushid", token);
 regid=token;
@@ -124,7 +124,7 @@ success: function(data){
 });
 
 
-FCMPlugin.onTokenRefresh(function(token){
+FCMPluginNG.onTokenRefresh(function(token){
 plateos=window.localStorage.getItem("os");
 
 window.localStorage.setItem("pushid", token);
@@ -149,7 +149,7 @@ success: function(data){
 
 
 
-FCMPlugin.onNotification(function(data){
+FCMPluginNG.onNotification(function(data){
 //alert(JSON.stringify(data));
  if(data.wasTapped){
     
@@ -326,8 +326,8 @@ error: function(data) {
         
         }
          
-		if(typeof(FCMPlugin) != 'undefined') { 
-		 FCMPlugin.subscribeToTopic('laser13');
+		if(typeof(FCMPluginNG) != 'undefined') { 
+		 FCMPluginNG.subscribeToTopic('laser132');
 			
 		}
          //      $scope.letterLimit = NewsData.letterLimit;		 
@@ -609,8 +609,8 @@ window.localStorage.removeItem("pass");
 	
 	}});
 	
-if(typeof(FCMPlugin) != 'undefined') {
-FCMPlugin.unsubscribeFromTopic('laser13log');
+if(typeof(FCMPluginNG) != 'undefined') {
+FCMPluginNG.unsubscribeFromTopic('laser13log');
 //	 var utilisateur=window.localStorage.getItem("user");
 	//	 FCMPlugin.subscribeToTopic(utilisateur);	
 }
@@ -640,8 +640,8 @@ ons.notification.alert({
 	 
 $scope.deco = function() {
 //alert("kikoo");
-if(typeof(FCMPlugin) != 'undefined') {
-FCMPlugin.unsubscribeFromTopic('laser13log');
+if(typeof(FCMPluginNG) != 'undefined') {
+FCMPluginNG.unsubscribeFromTopic('laser13log');
 		// var utilisateur=window.localStorage.getItem("user");
 		// FCMPlugin.subscribeToTopic(utilisateur);	
 }
@@ -746,8 +746,8 @@ $scope.$apply(function() {
 		$scope.username=usersauv;
 		
 	
-			if(typeof(FCMPlugin) != 'undefined') { 
-		 FCMPlugin.subscribeToTopic('laser13log');
+			if(typeof(FCMPluginNG) != 'undefined') { 
+		 FCMPluginNG.subscribeToTopic('laser13log');
 		// var utilisateur=window.localStorage.getItem("user");
 		// FCMPlugin.subscribeToTopic(utilisateur);		
 		}
