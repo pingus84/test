@@ -101,6 +101,7 @@ window.localStorage.setItem("os", plateos);
 if(1) {
 
 cordova.plugins.firebase.messaging.getToken().then(function(token) {
+alert(token);
 plateos=window.localStorage.getItem("os");
 window.localStorage.setItem("pushid", token);
 regid=token;
@@ -327,7 +328,7 @@ error: function(data) {
         }
          
 		if(1) { 
-		 cordova.plugins.firebase.messaging.subscribe("laser13");
+		 cordova.plugins.firebase.messaging.subscribe("laser13-test");
 			
 		}
          //      $scope.letterLimit = NewsData.letterLimit;		 
