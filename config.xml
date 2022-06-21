@@ -40,10 +40,11 @@
 	    <platform name="android">
       <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
-	
-	<plugin name="cordova-plugin-fcm-android" source="npm">
-  <variable name="APP_DOMAIN" value="laser13.fr" />		
-    <variable name="PAGE_LINK_DOMAIN" value="laser13.page.link" />
+
+	<plugin name="cordova-plugin-firebase-messaging" source="npm">
+  <variable name="IOS_FIREBASE_POD_VERSION" value="~> 8.8.0" />		
+    <variable name="ANDROID_FIREBASE_MESSAGING_VERSION" value="22.0.+" />
+		    <variable name="ANDROIDX_CORE_VERSION" value="1.6.+" />
 </plugin>
 	
     <platform name="android">
