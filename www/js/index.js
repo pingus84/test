@@ -16,6 +16,15 @@ var contactidrecu;
 var regid;
 
 
+
+cordova.plugins.firebase.messaging.createChannel({
+  id: "News",
+  name: "News",
+  importance: 0,
+});
+
+
+
 function maj(){
 
   $.ajax({
