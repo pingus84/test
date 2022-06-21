@@ -2,12 +2,24 @@
 <widget id="com.application.laser13" version="1.1.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Laser13</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+      Application du centre Laser13
     </description>
-    <author email="laser13chambery@gmail.com" href="http://cordova.io">
-        laser13
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Laser13
     </author>
     <content src="index.html" />
+	    <preference name="phonegap-version" value="cli-8.0.0" /> 
+    <preference name="android-minSdkVersion" value="16" />
+ 	<preference name="pgb-builder-version" value="2" />
+   <preference name="DisallowOverscroll" value="true" />
+    <preference name="BackgroundColor" value="0xFF000000" />
+    <plugin name="cordova-plugin-statusbar" source="npm" />
+    <plugin name="cordova-plugin-console" source="npm"/>
+    <plugin name="cordova-plugin-dialogs" source="npm" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-keyboard" source="npm" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" version="4.1.3"/>
+
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -15,51 +27,36 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-	
-	
-	    <preference name="phonegap-version" value="cli-8.0.0" /> 
-    <preference name="android-minSdkVersion" value="16" />
- 	<preference name="pgb-builder-version" value="2" />
-   <preference name="DisallowOverscroll" value="true" />
-    <preference name="BackgroundColor" value="0xFF000000" />
-	
-	
-	
-	
-    <plugin name="cordova-plugin-statusbar" source="npm" />
-    <plugin name="cordova-plugin-console" source="npm"/>
-    <plugin name="cordova-plugin-dialogs" source="npm" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
-    <plugin name="cordova-plugin-keyboard" source="npm" />
-    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" version="4.1.3"/>
-    <plugin name="cordova-plugin-inappbrowser" source="npm" />
 
-    <plugin name="cordova-plugin-ios-non-exempt-encryption" source="npm" />
-	
-<platform name="android">
-    <resource-file src="google-services.json" target="app/google-services.json" />
-</platform>
-
-<platform name="ios">
-
-    <resource-file src="GoogleService-Info.plist" />
-</platform>
-	<plugin name="cordova-plugin-firebase-messaging" source="npm">
-  <variable name="IOS_FIREBASE_POD_VERSION" value="~> 8.8.0" />		
-    <variable name="ANDROID_FIREBASE_MESSAGING_VERSION" value="22.0.+" />
-		    <variable name="ANDROIDX_CORE_VERSION" value="1.6.+" />
-</plugin>
-	
-    <platform name="android">
-        <allow-intent href="market:*" />
-        <preference name="android-minSdkVersion" value="30" />
-        <preference name="android-targetSdkVersion" value="30"/>
-    </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
 
+
+    <platform name="ios">
+        <resource-file src="GoogleService-Info.plist" />
+    </platform>
+	
+	
+	<plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>
+
+<config-file target="*-Info.plist" parent="CFBundleDevelopmentRegion" mode="replace">
+
+            <string>fr-FR</string>
+</config-file>
+
+
+<preference name="TopActivityIndicator" value="none"/>
+
+<preference name="orientation" value="portrait" />
+
+    <preference name="exit-on-suspend" value="true" />	  
+  <preference name="target-device" value="handset" />
+
+
+    <engine name="android" spec="~7.0.0" />
+    <engine name="ios" spec="~4.5.4" />
 
     <platform name="ios">
         <icon height="1024" src="res/icons/ios/icon-1024.png" width="1024" />
@@ -90,6 +87,10 @@
         <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
     </platform>
     <platform name="android">
+	
+	 <allow-intent href="market:*" /> 
+ <resource-file src="google-services.json" target="app/google-services.json" />
+ 
  
         <icon density="ldpi" src="res/icons/android/ldpi.png" />
         <icon density="mdpi" src="res/icons/android/mdpi.png" />
@@ -104,18 +105,8 @@
         <splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png" />
         <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png" />
     </platform>
+    <plugin name="cordova-plugin-inappbrowser" source="npm"  version="2.0.2"/>
 
 
 
-
-<preference name="TopActivityIndicator" value="none"/>
-
-<preference name="orientation" value="portrait" />
-
-    <preference name="exit-on-suspend" value="true" />	  
-  <preference name="target-device" value="handset" />
-	
-
-
-	
 </widget>
