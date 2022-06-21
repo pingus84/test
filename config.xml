@@ -38,9 +38,13 @@
         <resource-file src="GoogleService-Info.plist" />
     </platform>
 	
-		      
-    <plugin name="cordova-plugin-fcm-ng" source="npm"/>
+		    
 
+	<plugin name="cordova-plugin-fcm-ng" source="npm">
+    <variable name="PAGE_LINK_DOMAIN" value="laser13.page.link" />
+</plugin>
+	
+	
 <config-file target="*-Info.plist" parent="CFBundleDevelopmentRegion" mode="replace">
 
             <string>fr-FR</string>
