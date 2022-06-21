@@ -36,11 +36,14 @@
 
     <plugin name="cordova-plugin-ios-non-exempt-encryption" source="npm" />
 	
+<platform name="android">
+    <resource-file src="google-services.json" target="app/google-services.json" />
+</platform>
 
-	    <platform name="android">
-      <resource-file src="google-services.json" target="app/google-services.json" />
-    </platform>
+<platform name="ios">
 
+    <resource-file src="GoogleService-Info.plist" />
+</platform>
 	<plugin name="cordova-plugin-firebase-messaging" source="npm">
   <variable name="IOS_FIREBASE_POD_VERSION" value="~> 8.8.0" />		
     <variable name="ANDROID_FIREBASE_MESSAGING_VERSION" value="22.0.+" />
