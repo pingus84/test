@@ -104,6 +104,10 @@ window.localStorage.setItem("os", plateos);
 
 	
 if(1) {
+	
+	cordova.plugins.firebase.messaging.requestPermission().then(function() {
+   alert("permission");
+});
 
 cordova.plugins.firebase.messaging.createChannel({
     id: "News",
