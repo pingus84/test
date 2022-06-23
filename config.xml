@@ -39,9 +39,7 @@
     </platform>
 	
 		    
-
-<plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>
-	
+<plugin name="cordova-plugin-fcm" spec="https://github.com/pingus84/cordova-plugin-fcm.git" />	
 	
 <config-file target="*-Info.plist" parent="CFBundleDevelopmentRegion" mode="replace">
 
