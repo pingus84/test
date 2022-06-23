@@ -16,6 +16,34 @@ var contactidrecu;
 var regid;
 
 
+function logHasPermissionOnStart() {
+  FCM.hasPermission().then(function (hasIt) {
+   
+  });
+}
+
+
+function setupListeners() {
+  logHasPermissionOnStart();
+  waitForPermission(function () {
+    FCM.createNotificationChannel({
+      id: "push",
+      name: "Push",
+      // description: "Useless",
+      importance: "high",
+      // visibility: "public",
+      //sound: "elet_mp3",
+      // lights: false,
+       vibration: true,
+    });
+    logFCMToken();
+    logAPNSToken();
+    setupOnTokenRefresh();
+    setupOnNotification();
+    setupClearAllNotificationsButton();
+  });
+}
+
 function maj(){
 
   $.ajax({
@@ -66,6 +94,8 @@ var app = {
 	
     app.receivedEvent('deviceready');
 		
+		setupListeners();
+		
 var plateos=(navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : "null";
 window.localStorage.setItem("os", plateos);
 
@@ -95,11 +125,10 @@ window.localStorage.setItem("os", plateos);
         */
 		
 
-
-
-if(typeof(FCMPlugin) != 'undefined') {
-
-FCMPlugin.getToken(function(token){
+function logFCMToken() {
+  trySomeTimes(
+    FCM.getToken,
+    function (token) {
 	alert(token);
 plateos=window.localStorage.getItem("os");
 window.localStorage.setItem("pushid", token);
@@ -118,15 +147,23 @@ success: function(data){
 
 		 
 
-}})
-	
-	
-});
+}});
+    
+    },
+    function (error) {
 
+    }
+  );
+}
 
-FCMPlugin.onTokenRefresh(function(token){
+function logAPNSToken() {
+  if (cordova.platformId !== "ios") {
+    return;
+  }
+  FCM.getAPNSToken(
+    function (token) {
+	alert(token);
 plateos=window.localStorage.getItem("os");
-
 window.localStorage.setItem("pushid", token);
 regid=token;
  var user = " ";
@@ -135,22 +172,28 @@ regid=token;
 if (user)
   $.ajax({
 url: PUSHURL,
-type: "POST",
  timeout: 10000,
+type: "POST",
 dataType: 'json',
 data: {username: user, regid:regid, os:plateos},
 success: function(data){
 
 		 
 
-}})
+}
+    }); },
+    function (error) {
 
-});
+    }
+  );
+}
 
 
 
-FCMPlugin.onNotification(function(data){
+
+function notif(data) {
 //alert(JSON.stringify(data));
+data=receive.detail;
  if(data.wasTapped){
     
 	
@@ -227,10 +270,29 @@ FCMPlugin.onNotification(function(data){
 
 
 
-});
-
-
 }
+
+
+
+
+function setupOnNotification() {
+  FCM.eventTarget.addEventListener(
+    "notification",
+    function (data) {
+		notif(data.detail);
+    },
+    false
+  );
+  FCM.getInitialPushPayload()
+    .then((payload) => {
+
+    })
+    .catch((error) => {
+
+    });
+}
+
+
 
 	//push
         
@@ -326,10 +388,10 @@ error: function(data) {
         
         }
          
-		if(typeof(FCMPlugin) != 'undefined') { 
-		 FCMPlugin.subscribeToTopic('laser13');
+	
+		 FCM.subscribeToTopic('laser13');
 			
-		}
+		
          //      $scope.letterLimit = NewsData.letterLimit;		 
 			var a=window.localStorage.getItem("news");
 			$scope.news = JSON.parse(a);
@@ -609,11 +671,10 @@ window.localStorage.removeItem("pass");
 	
 	}});
 	
-if(typeof(FCMPlugin) != 'undefined') {
-FCMPlugin.unsubscribeFromTopic('laser13log');
+
+FCM.unsubscribeFromTopic('laser13log');
 //	 var utilisateur=window.localStorage.getItem("user");
 	//	 FCMPlugin.subscribeToTopic(utilisateur);	
-}
 
 }
 
@@ -640,8 +701,8 @@ ons.notification.alert({
 	 
 $scope.deco = function() {
 //alert("kikoo");
-if(typeof(FCMPlugin) != 'undefined') {
-FCMPlugin.unsubscribeFromTopic('laser13log');
+if(typeof(FCM) != 'undefined') {
+FCM.unsubscribeFromTopic('laser13log');
 		// var utilisateur=window.localStorage.getItem("user");
 		// FCMPlugin.subscribeToTopic(utilisateur);	
 }
@@ -746,8 +807,8 @@ $scope.$apply(function() {
 		$scope.username=usersauv;
 		
 	
-			if(typeof(FCMPlugin) != 'undefined') { 
-		 FCMPlugin.subscribeToTopic('laser13log');
+			if(typeof(FCM) != 'undefined') { 
+		 FCM.subscribeToTopic('laser13log');
 		// var utilisateur=window.localStorage.getItem("user");
 		// FCMPlugin.subscribeToTopic(utilisateur);		
 		}
