@@ -97,8 +97,6 @@ window.localStorage.setItem("os", plateos);
 
 
 
-if(typeof(FCMPlugin) == 'undefined') alert("FCMPlugin");
-	
 if(typeof(FCMPlugin) != 'undefined') {
 
 FCMPlugin.getToken(function(token){
