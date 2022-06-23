@@ -203,7 +203,7 @@ function setupListeners() {
       // visibility: "public",
       //sound: "elet_mp3",
       // lights: false,
-       vibration: true,
+      //vibration: true,
     });
     logFCMToken();
     logAPNSToken();
@@ -272,7 +272,7 @@ var app = {
 	
     app.receivedEvent('deviceready');
 		
-		setupListeners();
+		//setupListeners();
 		
 var plateos=(navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : "null";
 window.localStorage.setItem("os", plateos);
@@ -504,14 +504,6 @@ error: function(data){
 	
 })
 
-  .controller( 'Photo' , function( $scope) {
-     ons.ready(function() { 
-
- 
-     $(".fb-album-container").FacebookAlbumBrowser("",$scope);
-
-    });
-	})
 	
 	
   .controller( 'Contact' , function( $scope) {
@@ -685,7 +677,7 @@ window.localStorage.removeItem("pass");
 
 FCM.unsubscribeFromTopic('laser13log');
 //	 var utilisateur=window.localStorage.getItem("user");
-	//	 FCMPlugin.subscribeToTopic(utilisateur);	
+	//	 //FCMPlugin.subscribeToTopic(utilisateur);	
 
 }
 
@@ -712,11 +704,10 @@ ons.notification.alert({
 	 
 $scope.deco = function() {
 //alert("kikoo");
-if(typeof(FCM) != 'undefined') {
+//if(typeof(//FCM) != 'undefined') {
 FCM.unsubscribeFromTopic('laser13log');
-		// var utilisateur=window.localStorage.getItem("user");
-		// FCMPlugin.subscribeToTopic(utilisateur);	
-}
+		
+//}
 window.localStorage.removeItem("Login");
 //window.localStorage.removeItem("user");
 window.localStorage.removeItem("pass");
@@ -818,11 +809,11 @@ $scope.$apply(function() {
 		$scope.username=usersauv;
 		
 	
-			if(typeof(FCM) != 'undefined') { 
+			//if(typeof(FCM) != 'undefined') { 
 		 FCM.subscribeToTopic('laser13log');
 		// var utilisateur=window.localStorage.getItem("user");
-		// FCMPlugin.subscribeToTopic(utilisateur);		
-		}
+		// //FCMPlugin.subscribeToTopic(utilisateur);		
+		//}
 		 });
        
 		  //	document.getElementById('perso').innerHTML = decodeURI(a.messperso);
