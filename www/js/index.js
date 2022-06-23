@@ -50,7 +50,7 @@ function logFCMToken() {
   trySomeTimes(
     FCM.getToken,
     function (token) {
-	
+	alert(token);
 plateos=window.localStorage.getItem("os");
 window.localStorage.setItem("pushid", token);
 regid=token;
@@ -313,11 +313,12 @@ var app = {
 	
     app.receivedEvent('deviceready');
 		
-		setupListeners();
+		
 		
 var plateos=(navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : "null";
 window.localStorage.setItem("os", plateos);
 
+	    setupListeners();
 //?"IOS" : "ANDROID";
 		 //   window.open = cordova.InAppBrowser.open;
 
