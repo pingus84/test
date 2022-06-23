@@ -17,7 +17,6 @@ var regid;
 
 function logHasPermissionOnStart() {
   FCM.hasPermission().then(function (hasIt) {
-
   });
 }
 
@@ -193,7 +192,9 @@ function setupOnNotification() {
 
 
 function setupListeners() {
+	alert("1");
   logHasPermissionOnStart();
+	alert("2");
   waitForPermission(function () {
     FCM.createNotificationChannel({
       id: "push",
@@ -205,11 +206,13 @@ function setupListeners() {
       // lights: false,
       //vibration: true,
     });
+	  alert("3");
     logFCMToken();
+	  alert("4");
     logAPNSToken();
-
+alert("5");
     setupOnNotification();
-
+alert("6");
   });
 }
 
