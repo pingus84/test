@@ -91,7 +91,7 @@
     <platform name="android">
 	
 	 <allow-intent href="market:*" /> 
- <resource-file src="google-services.json" target="app/google-services.json" />
+
  
  
         <icon density="ldpi" src="res/icons/android/ldpi.png" />
