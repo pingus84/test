@@ -22,6 +22,30 @@ function logHasPermissionOnStart() {
 
 
 
+function trySomeTimes(asyncFunc, onSuccess, onFailure, customTries) {
+  var tries = typeof customTries === "undefined" ? 100 : customTries;
+  var interval = setTimeout(function () {
+    if (typeof asyncFunc !== "function") {
+      onSuccess("Unavailable");
+      return;
+    }
+    asyncFunc()
+      .then(function (result) {
+        if ((result !== null && result !== "") || tries < 0) {
+          onSuccess(result);
+        } else {
+          trySomeTimes(asyncFunc, onSuccess, onFailure, tries - 1);
+        }
+      })
+      .catch(function (e) {
+        clearInterval(interval);
+        onFailure(e);
+      });
+  }, 100);
+}
+
+
+
 function logFCMToken() {
   trySomeTimes(
     FCM.getToken,
