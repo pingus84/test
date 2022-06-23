@@ -197,12 +197,12 @@ function setupListeners() {
 	alert("2");
   waitForPermission(function () {
     FCM.createNotificationChannel({
-      id: "push",
-      name: "Push",
+      id: "Laser13",
+      name: "Push laser13",
       // description: "Useless",
       importance: "high",
       // visibility: "public",
-      //sound: "elet_mp3",
+      sound: "elet_mp3",
       // lights: false,
       //vibration: true,
     });
