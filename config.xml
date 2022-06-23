@@ -107,7 +107,7 @@
         <splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png" />
         <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png" />
     </platform>
-    <plugin name="cordova-plugin-inappbrowser" source="npm"  version="2.0.2"/>
+    <plugin name="cordova-plugin-inappbrowser" source="npm"/>
 
 
 
