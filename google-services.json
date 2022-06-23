@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "511453865523",
+    "firebase_url": "https://applaser13.firebaseio.com",
+    "project_id": "applaser13",
+    "storage_bucket": "applaser13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511453865523:android:6240eca097950616",
+        "android_client_info": {
+          "package_name": "com.application.laser13"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511453865523-4esqsvjv2bo43sfkfmlu4ii7nhb1aqos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUk_zHBy9-STZOtFsSGBqVgIXk8jTE078"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511453865523-4esqsvjv2bo43sfkfmlu4ii7nhb1aqos.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "511453865523-2253f9k0rf3u201tcf066kvtpeq0fira.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.application.laser13"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
