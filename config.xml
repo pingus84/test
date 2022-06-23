@@ -52,8 +52,6 @@
   <preference name="target-device" value="handset" />
 
 
-    <engine name="android" spec="~7.0.0" />
-    <engine name="ios" spec="~4.5.4" />
 
     <platform name="ios">
         <icon height="1024" src="res/icons/ios/icon-1024.png" width="1024" />
