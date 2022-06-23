@@ -85,6 +85,19 @@ success: function(data){
   );
 }
 
+function waitForPermission(callback) {
+  FCM.requestPushPermission()
+    .then(function (didIt) {
+      if (didIt) {
+        callback();
+      } else {
+        //addToLog("<p>Push permission was not given to this application</p>");
+      }
+    })
+    .catch(function (error) {
+     // addToLog("<p>Error on checking permission: " + error + "</p>");
+    });
+}
 
 
 
@@ -168,6 +181,7 @@ data=receive.detail;
 
 
 }
+
 
 
 
