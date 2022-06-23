@@ -207,9 +207,9 @@ function setupListeners() {
     });
     logFCMToken();
     logAPNSToken();
-    setupOnTokenRefresh();
+
     setupOnNotification();
-    setupClearAllNotificationsButton();
+
   });
 }
 
