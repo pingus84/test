@@ -39,7 +39,12 @@
     </platform>
 	
 		    
-<plugin name="cordova-plugin-fcm" spec="https://github.com/pingus84/cordova-plugin-fcm.git" />	
+<plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="npm" />
+	
+<plugin name="cordova-plugin-androidx-adapter" spec="npm" />
+<plugin name="cordova-plugin-firebase-messaging" spec="npm" />
+<plugin name="cordova-plugin-firebase-dynamiclinks" spec="npm" />
+	
 	
 <config-file target="*-Info.plist" parent="CFBundleDevelopmentRegion" mode="replace">
 
