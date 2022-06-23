@@ -15,115 +15,13 @@ var newsidrecu;
 var contactidrecu;
 var regid;
 
-
 function logHasPermissionOnStart() {
   FCM.hasPermission().then(function (hasIt) {
-   
+  alert("ok");
   });
 }
 
 
-function setupListeners() {
-  logHasPermissionOnStart();
-  waitForPermission(function () {
-    FCM.createNotificationChannel({
-      id: "push",
-      name: "Push",
-      // description: "Useless",
-      importance: "high",
-      // visibility: "public",
-      //sound: "elet_mp3",
-      // lights: false,
-       vibration: true,
-    });
-    logFCMToken();
-    logAPNSToken();
-    setupOnTokenRefresh();
-    setupOnNotification();
-    setupClearAllNotificationsButton();
-  });
-}
-
-function maj(){
-
-  $.ajax({
-url: MAJURL,
-type: "POST",
-   timeout: 10000,
-dataType:'json',
-
-success: function(data){
-tarifidrecu=data.result.tarifid;
-newsidrecu=data.result.newsid;
-contactidrecu=data.result.contactid;
-
-
-}});	
-
-}
-var app = {
-    // Application Constructor
-    initialize: function() {
-
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-		document.addEventListener("resume", this.onResume, false);
-
-       document.addEventListener('pause', this.onPause, false);
-
-    },
-    // deviceready Event Handler
-    //
-	
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-		 
-	ons.disableAutoStatusBarFill() ;
-	
-	
-	if(typeof(Keyboard) != 'undefined') {
-	Keyboard.hideFormAccessoryBar(true);
-    }
-	
-    app.receivedEvent('deviceready');
-		
-		setupListeners();
-		
-var plateos=(navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : "null";
-window.localStorage.setItem("os", plateos);
-
-//?"IOS" : "ANDROID";
-		 //   window.open = cordova.InAppBrowser.open;
-
-        ons.setDefaultDeviceBackButtonListener(function() {
-            if (navigator.notification.confirm("Voulez vous quitter?", 
-                function(index) {
-                    if (index == 1) { // OK button
-                        navigator.app.exitApp(); // Close the app
-                    }
-                }
-            ,"Laser13"),["Oui","Non"] );
-        });
-/*
-        // Open any external link with InAppBrowser Plugin
-        $(document).on('click', 'a[href^=http], a[href^=https]', function(e){
-
-            e.preventDefault();
-            var $this = $(this); 
-            var target = $this.data('inAppBrowser') || '_system'; //'_blank';
-
-            window.open($this.attr('href'), target);
-
-        });
-        */
-		
 
 function logFCMToken() {
   trySomeTimes(
@@ -291,6 +189,119 @@ function setupOnNotification() {
 
     });
 }
+
+
+
+function setupListeners() {
+  logHasPermissionOnStart();
+  waitForPermission(function () {
+    FCM.createNotificationChannel({
+      id: "push",
+      name: "Push",
+      // description: "Useless",
+      importance: "high",
+      // visibility: "public",
+      //sound: "elet_mp3",
+      // lights: false,
+       vibration: true,
+    });
+    logFCMToken();
+    logAPNSToken();
+    setupOnTokenRefresh();
+    setupOnNotification();
+    setupClearAllNotificationsButton();
+  });
+}
+
+
+
+
+function maj(){
+
+  $.ajax({
+url: MAJURL,
+type: "POST",
+   timeout: 10000,
+dataType:'json',
+
+success: function(data){
+tarifidrecu=data.result.tarifid;
+newsidrecu=data.result.newsid;
+contactidrecu=data.result.contactid;
+
+
+}});	
+
+
+}
+
+
+
+
+
+var app = {
+    // Application Constructor
+    initialize: function() {
+
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+		document.addEventListener("resume", this.onResume, false);
+
+       document.addEventListener('pause', this.onPause, false);
+
+    },
+    // deviceready Event Handler
+    //
+	
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicity call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+		 
+	ons.disableAutoStatusBarFill() ;
+	
+	
+	if(typeof(Keyboard) != 'undefined') {
+	Keyboard.hideFormAccessoryBar(true);
+    }
+	
+    app.receivedEvent('deviceready');
+		
+		setupListeners();
+		
+var plateos=(navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : "null";
+window.localStorage.setItem("os", plateos);
+
+//?"IOS" : "ANDROID";
+		 //   window.open = cordova.InAppBrowser.open;
+
+        ons.setDefaultDeviceBackButtonListener(function() {
+            if (navigator.notification.confirm("Voulez vous quitter?", 
+                function(index) {
+                    if (index == 1) { // OK button
+                        navigator.app.exitApp(); // Close the app
+                    }
+                }
+            ,"Laser13"),["Oui","Non"] );
+        });
+/*
+        // Open any external link with InAppBrowser Plugin
+        $(document).on('click', 'a[href^=http], a[href^=https]', function(e){
+
+            e.preventDefault();
+            var $this = $(this); 
+            var target = $this.data('inAppBrowser') || '_system'; //'_blank';
+
+            window.open($this.attr('href'), target);
+
+        });
+        */
+		
 
 
 
