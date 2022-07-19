@@ -125,9 +125,9 @@ function waitForPermission(callback) {
 
 
 
-function notif(data) {
+function notif(receive) {
 //alert(JSON.stringify(data));
-data=receive.detail;
+data=receive;
  if(data.wasTapped){
     
 	
@@ -214,14 +214,15 @@ function setupOnNotification() {
   FCM.eventTarget.addEventListener(
     "notification",
     function (data) {
-	    	alert(data);
-		notif(data);
+	    	alert(data.detail);
+		notif(data.detail);
     },
     false
   );
   FCM.getInitialPushPayload()
     .then((payload) => {
-
+	alert(payload);
+	notif(payload);
     })
     .catch((error) => {
 
