@@ -106,26 +106,7 @@
 	
 	    
 	    
-	    <preference name="KeepRunning" value="false"/>
-<preference name="LoadUrlTimeoutValue" value="10000"/>
-<preference name="InAppBrowserStorageEnabled" value="true"/>
-<preference name="LoadingDialog" value="My Title,My Message"/>
-<preference name="ErrorUrl" value="myErrorPage.html"/>
-<preference name="ShowTitle" value="true"/>
-<preference name="LogLevel" value="VERBOSE"/>
-<preference name="AndroidLaunchMode" value="singleTop"/>
-<preference name="AndroidInsecureFileModeEnabled" value="true" />
-<preference name="DefaultVolumeStream" value="call" />
-<preference name="OverrideUserAgent" value="Mozilla/5.0 My Browser" />
-<preference name="AppendUserAgent" value="My Browser" />
-<preference name="GradlePluginGoogleServicesEnabled" value="true" />
-<preference name="GradlePluginGoogleServicesVersion" value="4.2.0" />
-<preference name="GradlePluginKotlinEnabled" value="true" />
-<preference name="GradlePluginKotlinCodeStyle" value="official" />
-<preference name="GradlePluginKotlinVersion" value="1.3.50" />
-	    
-	    
-	    
+
 	 <allow-intent href="market:*" /> 
 
  
