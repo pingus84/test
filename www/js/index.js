@@ -215,7 +215,7 @@ function setupOnNotification() {
     "notification",
     function (data) {
 	    	alert(data);
-		notif(data.detail);
+		notif(data);
     },
     false
   );
