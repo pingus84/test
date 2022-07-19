@@ -214,6 +214,7 @@ function setupOnNotification() {
   FCM.eventTarget.addEventListener(
     "notification",
     function (data) {
+	    	alert(data);
 		notif(data.detail);
     },
     false
