@@ -50,7 +50,6 @@ function logFCMToken() {
   trySomeTimes(
     FCM.getToken,
     function (token) {
-	//alert(token);
 plateos=window.localStorage.getItem("os");
 window.localStorage.setItem("pushid", token);
 regid=token;
@@ -126,7 +125,7 @@ function waitForPermission(callback) {
 
 
 function notif(receive) {
-//alert(JSON.stringify(data));
+
 data=receive;
  if(data.wasTapped){
     
@@ -214,14 +213,14 @@ function setupOnNotification() {
   FCM.eventTarget.addEventListener(
     "notification",
     function (data) {
-	   // 	alert(data.detail);
+
 		notif(data.detail);
     },
     false
   );
   FCM.getInitialPushPayload()
     .then((payload) => {
-	//alert(payload);
+
 	notif(payload);
     })
     .catch((error) => {
@@ -232,9 +231,8 @@ function setupOnNotification() {
 
 
 function setupListeners() {
-	//alert("1");
+
   logHasPermissionOnStart();
-	//alert("2");
   waitForPermission(function () {
     FCM.createNotificationChannel({
       id: "Laser13",
@@ -246,13 +244,10 @@ function setupListeners() {
       // lights: false,
       //vibration: true,
     });
-	//  alert("3");
-    logFCMToken();
-	  //alert("4");
-    logAPNSToken();
-//alert("5");
-    setupOnNotification();
-//alert("6");
+
+	  logFCMToken();
+	logAPNSToken();
+  setupOnNotification();
   });
 }
 
