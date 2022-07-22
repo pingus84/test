@@ -10,6 +10,7 @@ var FIDELITEURL="https://www.laser13.fr/centre/index.php?mail=";
 var CREECOMPTEURL="https://www.laser13.fr/creecompte.php";
 var MISEAJOURCOMPTE="https://www.laser13.fr/miseajourcompte.php";
 var RECUPURL = "https://www.laser13.fr/centre/recup_mail.php";
+var SUPPRIMURL = "https://www.laser13.fr/centre/recup_mail.php";
 var tarifidrecu;
 var newsidrecu;
 var contactidrecu;
@@ -740,7 +741,66 @@ ons.notification.alert({
 
 }
  
-	 
+$scope.supprime = function() {
+//alert("kikoo");
+	
+	var b=window.localStorage.getItem("Login");
+	
+	 var a = JSON.parse(b);
+	
+	
+	  $.ajax({
+url: SUPPRIMEURL,
+ timeout: 10000,
+type: "POST",
+dataType: 'json',
+data: {mail: a.email},
+success: function(datarecu){
+
+ons.notification.alert({
+				title:'Laser13',
+				messageHTML: datarecu.result.message
+				});
+
+},
+error : function (datarecu)
+{
+ons.notification.alert({
+				title:'Erreur',
+				messageHTML: 'Erreur de connexion'
+				});
+				
+				}
+
+})
+	
+	
+	
+//if(typeof(//FCM) != 'undefined') {
+FCM.unsubscribeFromTopic('laser13log');
+		
+//}
+window.localStorage.removeItem("Login");
+//window.localStorage.removeItem("user");
+window.localStorage.removeItem("pass");
+
+
+
+	
+	$scope.appNavigator.popPage({onTransitionEnd : function() {
+    
+	 $scope.menu.setMainPage('fidelite.html', { animation : 'none' } );
+    
+	
+	}
+	
+	})
+	
+}
+	     
+
+	     
+	     
 $scope.deco = function() {
 //alert("kikoo");
 //if(typeof(//FCM) != 'undefined') {
