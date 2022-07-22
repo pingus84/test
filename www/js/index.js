@@ -10,7 +10,7 @@ var FIDELITEURL="https://www.laser13.fr/centre/index.php?mail=";
 var CREECOMPTEURL="https://www.laser13.fr/creecompte.php";
 var MISEAJOURCOMPTE="https://www.laser13.fr/miseajourcompte.php";
 var RECUPURL = "https://www.laser13.fr/centre/recup_mail.php";
-var SUPPRIMURL = "https://www.laser13.fr/centre/recup_mail.php";
+var SUPPRIMURL = "https://www.laser13.fr/centre/suppr_mail.php";
 var tarifidrecu;
 var newsidrecu;
 var contactidrecu;
