@@ -1,7 +1,7 @@
 {
   "name": "com.application.laser13",
   "displayName": "Laser13",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Application de votre centre Laser13",
   "main": "index.html",
   "scripts": {
