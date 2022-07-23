@@ -750,7 +750,7 @@ $scope.supprime = function() {
 	
 	
 	  $.ajax({
-url: SUPPRIMEURL,
+url: SUPPRIMURL,
  timeout: 10000,
 type: "POST",
 dataType: 'json',
