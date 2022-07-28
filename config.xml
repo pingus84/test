@@ -45,15 +45,15 @@
   <preference name="target-device" value="handset" />
 
 <preference name="DisallowOverscroll" value="true"/>
-<preference name="Fullscreen" value="true" />
+
 <preference name="BackgroundColor" value="0xff000000"/>
-<preference name="HideKeyboardFormAccessoryBar" value="true"/>
+
 <preference name="Orientation" value="portrait" />
 	
 	
     <platform name="ios">
 
-	    
+	    <preference name="TopActivityIndicator" value="none"/>
 	    
         <icon height="1024" src="res/icons/ios/icon-1024.png" width="1024" />
         <icon height="29" src="res/icons/ios/icon-small.png" width="29" />
