@@ -15,7 +15,7 @@ workflows:
         BUNDLE_ID: "com.application.laser13" # <-- Put your Bundle Id here.
       xcode: latest
       node: v16.11.1
-      npm: 6
+      npm: 9
     cache:
       cache_paths:
         - $CM_BUILD_DIR/node_modules
@@ -108,7 +108,7 @@ workflows:
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       xcode: 14.2
       node: 12
-      npm: 6 
+      npm: 9 
     cache:
       cache_paths:
         - $CM_BUILD_DIR/node_modules
