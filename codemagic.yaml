@@ -127,7 +127,7 @@ workflows:
           --device
             
     - name: Sign APK
-      script:| 
+      script: | 
         APK_PATH=$(find platforms/android/app/build/outputs/apk/release -name "*.apk" | head -1)
         jarsigner \
             -sigalg SHA1withRSA \
@@ -136,7 +136,6 @@ workflows:
             -storepass $CM_KEYSTORE_PASSWORD \
             -keypass $CM_KEY_PASSWORD \
             $APK_PATH $CM_KEY_ALIAS      
-    
     artifacts:
         - platforms/android/app/build/outputs/**/*.apk
     publishing:
