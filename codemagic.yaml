@@ -93,8 +93,6 @@ workflows:
   android-workflow:
     name: Android workflow
     environment:
-      ndk: r22b
-      java: 1.8
       groups:
         # Add the group environment variables in Codemagic UI (either in Application/Team variables) - https://docs.codemagic.io/variables/environment-variable-groups/
         - keystore_credentials # <-- (Includes KEYSTORE, KEYSTORE_PASSWORD, KEY_ALIAS_PASSWORD, KEY_ALIAS)
@@ -105,12 +103,9 @@ workflows:
           # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS - Put your google-services.json here)
         
       vars:
+        PACKAGE_NAME: "com.application.laser13"
         KEYSTORE_PATH: '/tmp/keystore.keystore'
-      xcode: 13.3
-      node: 12
-    cache:
-      cache_paths:
-        - $CM_BUILD_DIR/node_modules
+      node: latest
     scripts:
       - name: Install dependencies
         script: |
@@ -138,7 +133,6 @@ workflows:
           #jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore "${KEYSTORE_PATH}" -storepass "${KEYSTORE_PASSWORD}" -keypass "${KEY_ALIAS_PASSWORD}" "${UNSIGNED_APK_PATH}" "${KEY_ALIAS}"
           #zipalign -v 4 $UNSIGNED_APK_PATH app-release.apk
           #mv $UNSIGNED_APK_PATH $(echo $UNSIGNED_APK_PATH | sed 's/-unsigned//')
-          
           
           cordova build android --release --no-interactive --prod --device
           echo $KEYSTORE | base64 --decode > $KEYSTORE_PATH
