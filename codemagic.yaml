@@ -105,7 +105,7 @@ workflows:
       vars:
         PACKAGE_NAME: "com.application.laser13"
         KEYSTORE_PATH: '/tmp/keystore.keystore'
-      node: 12
+      node: 16
     scripts:
       - name: Install dependencies
         script: |
