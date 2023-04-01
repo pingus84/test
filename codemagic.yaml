@@ -93,6 +93,7 @@ workflows:
   android-workflow:
     name: Android workflow
     environment:
+      java: 1.8
       groups:
         # Add the group environment variables in Codemagic UI (either in Application/Team variables) - https://docs.codemagic.io/variables/environment-variable-groups/
         - keystore_credentials # <-- (Includes KEYSTORE, KEYSTORE_PASSWORD, KEY_ALIAS_PASSWORD, KEY_ALIAS)
