@@ -23,7 +23,6 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-plugin-whitelist": "1",
     "promise-polyfill": "^8.2.0"
   },
   "devDependencies": {
