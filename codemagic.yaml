@@ -93,7 +93,7 @@ workflows:
   android-workflow:
     name: Android workflow
     environment:
-      ndk: 
+      ndk: latest
       java: 1.8
       groups:
         # Add the group environment variables in Codemagic UI (either in Application/Team variables) - https://docs.codemagic.io/variables/environment-variable-groups/
@@ -107,8 +107,7 @@ workflows:
       vars:
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       xcode: latest
-      node: 
-      npm:
+      node: 12
     cache:
       cache_paths:
         - $CM_BUILD_DIR/node_modules
@@ -187,3 +186,5 @@ workflows:
           # See the following link for information regarding publishing to Google Play - https://docs.codemagic.io/publishing-yaml/distribution/#google-play
           credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
           track: alpha   
+
+
