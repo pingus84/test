@@ -125,7 +125,8 @@ workflows:
             --no-interactive \
             --prod \
             --device
-    - name: Sign APK
+            
+      - name: Sign APK
       script: | 
         APK_PATH=$(find platforms/android/app/build/outputs/apk/release -name "*.apk" | head -1)
         jarsigner \
