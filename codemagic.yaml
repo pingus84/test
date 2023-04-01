@@ -111,6 +111,7 @@ workflows:
         script: |
           npm install
           npm ci
+          cat package-lock.json
           cvm install 9.0.0
           cvm use 9.0.0        
       - name: Add Android platform
