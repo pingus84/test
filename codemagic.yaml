@@ -104,7 +104,7 @@ workflows:
         GOOGLE_PLAY_TRACK: alpha
       node: latest
   scripts:
-    - name: Install npm dependencies and update Cordova version
+    - name: Install npm dependencies and update Cordova version.
       script: | 
         npm install
         npm ci # equivalent of npm install for CI systems.
