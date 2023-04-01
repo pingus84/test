@@ -1,96 +1,4 @@
 workflows:
-  ios-workflow:
-    name: iOS workflow
-    environment:
-      groups:
-      # Add the group environment variables in Codemagic UI (either in Application/Team variables) - https://docs.codemagic.io/variables/environment-variable-groups/
-        - appstore_credentials # <-- (APP_STORE_CONNECT_ISSUER_ID, APP_STORE_CONNECT_KEY_IDENTIFIER, APP_STORE_CONNECT_PRIVATE_KEY)
-          # APP_STORE_CONNECT_ISSUER_ID <-- Put your App Store Connect Issuer Id here 
-          # APP_STORE_CONNECT_KEY_IDENTIFIER <-- Put your App Store Connect Key Identifier here 
-          # APP_STORE_CONNECT_PRIVATE_KEY <-- Put your App Store Connect Private Key here
-          # <-- (CERTIFICATE_PRIVATE_KEY - Put your Certificate Private Key here)
-      vars:
-        XCODE_WORKSPACE: "platforms/ios/Laser13.xcworkspace" # <-- Put the name of your workspace here.
-        XCODE_SCHEME: "Laser13" # <-- Put the name of your scheme here.       
-        BUNDLE_ID: "com.application.laser13" # <-- Put your Bundle Id here.
-      xcode: latest
-      node: v16.11.1
-      npm: 9
-    cache:
-      cache_paths:
-        - $CM_BUILD_DIR/node_modules
-    scripts:
-      - name: Install dependencies
-        script: |
-          npm install
-          npm ci
-          cvm install 9.0.0
-          cvm use 9.0.0
-      - name: Setup iOS
-        script: |
-          cordova platform remove ios --nosave
-          cordova platform add ios --confirm --no-interactive --noresources --save  
-      - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
-        script: |
-          keychain initialize
-      - name: Fetch signing files
-        script: |
-          app-store-connect fetch-signing-files $BUNDLE_ID --type IOS_APP_STORE --create
-      - name: Add certificates to keychain
-        script: |
-          keychain add-certificates         
-      - name: Set up code signing settings on Xcode project
-        script: |
-          xcode-project use-profiles
-      - name: Build iOS
-        script: |
-          package_type=$(defaults read ~/export_options.plist method)
-          identity=$(defaults read ~/export_options.plist signingCertificate)
-          team=$(defaults read ~/export_options.plist teamID)
-          profile=$(find '/Users/builder/Library/MobileDevice/Provisioning Profiles' -name "*.mobileprovision")
-          profile_uuid=$(grep UUID -A1 -a "$profile" | grep -io "[-A-F0-9]\{36\}")
-        
-          cat <<EOF > build.json
-              {
-                "ios": {
-                  "release": {
-                    "codeSignIdentity": "$identity",
-                    "developmentTeam": "$team",
-                    "packageType": "$package_type",
-                    "provisioningProfile": "$profile_uuid"
-                  }
-                }
-              }
-          EOF
-          cordova build ios --release --device --buildConfig='build.json' 
-    artifacts:
-      - /Users/builder/clone/platforms/ios/build/device/*.ipa
-      - /tmp/xcodebuild_logs/*.log           
-    publishing:
-      # See the following link for details about email publishing - https://docs.codemagic.io/publishing-yaml/distribution/#email
-      email:
-        recipients:
-          - user_1@example.com
-          - user_2@example.com
-        notify:
-          success: true     # To not receive a notification when a build succeeds
-          failure: false    # To not receive a notification when a build fails
-      slack: 
-        # See the following link about how to connect your Slack account - https://docs.codemagic.io/publishing-yaml/distribution/#slack
-        channel: '#channel-name'
-        notify_on_build_start: true   # To receive a notification when a build starts
-        notify:
-          success: true               # To receive a notification when a build succeeds
-          failure: false              # To not receive a notification when a build fails
-      app_store_connect:                 
-        api_key: $APP_STORE_CONNECT_PRIVATE_KEY         # Contents of the API key, can also reference environment variable such as $APP_STORE_CONNECT_PRIVATE_KEY
-        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER       # Alphanumeric value that identifies the API key, can also reference environment variable such as $APP_STORE_CONNECT_KEY_IDENTIFIER
-        issuer_id: $APP_STORE_CONNECT_ISSUER_ID         # Alphanumeric value that identifies who created the API key, can also reference environment variable such as $APP_STORE_CONNECT_ISSUER_ID
-        submit_to_testflight: false                     # Optional boolean, defaults to false. Whether or not to submit the uploaded build to TestFlight beta review. Required for distributing to beta groups. Note: This action is performed during post-processing.
-        # beta_groups:                                  # Specify the names of beta tester groups that will get access to the build once it has passed beta review. 
-        #      - group name 1
-        #      - group name 2  
-
   android-workflow:
     name: Ionic Cordova Android Workflow
     max_build_duration: 120
@@ -98,46 +6,45 @@ workflows:
       android_signing:
         - keystore_reference
       groups:
-        - keystore_credentials
+        - google_play
       vars:
         PACKAGE_NAME: "com.application.laser13"
         GOOGLE_PLAY_TRACK: alpha
       node: latest
-  scripts:
-    - name: Install npm dependencies and update Cordova version.
-      script: | 
-        npm install
-        npm ci # equivalent of npm install for CI systems.
-          # Requires package-lock.json or npm-shrinkwrap.json to be present
-        cvm install 9.0.0
-        cvm use 9.0.0 
-    - name: Setup Cordova Android platform
-      script: | 
-        ionic cordova platform remove android --nosave
-        ionic cordova platform add android \
-          --confirm \
-          --no-interactive \
-          --noresources 
-    - name: Build Android Cordova App
-      script: | 
-        ionic cordova build android \
-          --release \
-          --no-interactive \
-          --prod \
-          --device
-            
+    scripts:
+      - name: Install npm dependencies and update Cordova version
+        script: | 
+          npm install
+          npm ci # equivalent of npm install for CI systems.
+            # Requires package-lock.json or npm-shrinkwrap.json to be present
+          cvm install 9.0.0
+          cvm use 9.0.0 
+      - name: Setup Cordova Android platform
+        script: | 
+          ionic cordova platform remove android --nosave
+          ionic cordova platform add android \
+            --confirm \
+            --no-interactive \
+            --noresources 
+      - name: Build Android Cordova App
+        script: | 
+          ionic cordova build android \
+            --release \
+            --no-interactive \
+            --prod \
+            --device
     - name: Sign APK
       script: | 
         APK_PATH=$(find platforms/android/app/build/outputs/apk/release -name "*.apk" | head -1)
         jarsigner \
-            -sigalg SHA1withRSA \
-            -digestalg SHA1 \
-            -keystore $CM_KEYSTORE_PATH \
-            -storepass $CM_KEYSTORE_PASSWORD \
-            -keypass $CM_KEY_PASSWORD \
-            $APK_PATH $CM_KEY_ALIAS      
+          -sigalg SHA1withRSA \
+          -digestalg SHA1 \
+          -keystore $CM_KEYSTORE_PATH \
+          -storepass $CM_KEYSTORE_PASSWORD \
+          -keypass $CM_KEY_PASSWORD \
+          $APK_PATH $CM_KEY_ALIAS         
     artifacts:
-        - platforms/android/app/build/outputs/**/*.apk
+      - platforms/android/app/build/outputs/**/*.apk
     publishing:
       email:
         recipients:
