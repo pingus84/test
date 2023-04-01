@@ -125,7 +125,7 @@ workflows:
         script: |
           set -x
           set -e
-          export ORG_GRADLE_PROJECT_cdvMinSdkVersion=23
+          export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
           #cordova build android
           #cordova run android --prod --release -- -- --gradleArg=-PcdvMinSdkVersion=20
           #cordova run android --release -- --keystore=android.keystore  --storePassword=laser13laser13 --alias=android-app-key --password=laser13laser13 --packageType=apk
