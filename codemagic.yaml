@@ -108,7 +108,7 @@ workflows:
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       xcode: 13.3
       node: 12
-      npm: 6  
+      npm: 6.14.18  
     scripts:
       - name: Install dependencies
         script: |
