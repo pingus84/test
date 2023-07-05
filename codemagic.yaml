@@ -108,8 +108,8 @@ workflows:
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       xcode: 13.3
       node: 12
-
-        scripts:
+      
+    scripts:
     - name: Install npm dependencies and update Cordova version
       script: | 
         npm install
@@ -143,6 +143,7 @@ workflows:
           $APK_PATH $CM_KEY_ALIAS         
   artifacts:
     - platforms/android/app/build/outputs/**/*.apk
+    
     publishing:
         # See the following link for details about email publishing - https://docs.codemagic.io/publishing-yaml/distribution/#email
         email:
