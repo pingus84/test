@@ -106,7 +106,7 @@ workflows:
       vars:
         PACKAGE_NAME: "com.application.laser13"
         KEYSTORE_PATH: '/tmp/keystore.keystore'
-      xcode: 12.4
+      xcode: 13.3
       node: 12
       npm: 6  
     scripts:
