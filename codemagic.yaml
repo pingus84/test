@@ -106,7 +106,9 @@ workflows:
       vars:
         PACKAGE_NAME: "com.application.laser13"
         KEYSTORE_PATH: '/tmp/keystore.keystore'
-      node: v16
+      xcode: 12.4
+      node: 12
+      npm: 6  
     scripts:
       - name: Install dependencies
         script: |
@@ -125,7 +127,7 @@ workflows:
         script: |
           set -x
           set -e
-          #export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
+          export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
           #cordova build android
           #cordova run android --prod --release -- -- --gradleArg=-PcdvMinSdkVersion=20
           #cordova run android --release -- --keystore=android.keystore  --storePassword=laser13laser13 --alias=android-app-key --password=laser13laser13 --packageType=apk
