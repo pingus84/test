@@ -106,6 +106,7 @@ workflows:
         PACKAGE_NAME: "com.application.laser13"
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       node: v16
+      java: 1.8
     scripts:
       - name: Install dependencies
         script: |
