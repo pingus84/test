@@ -107,7 +107,6 @@ workflows:
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       node: v16
       java: 1.8
-      ndk: r21d 
     scripts:
       - name: Install dependencies
         script: |
