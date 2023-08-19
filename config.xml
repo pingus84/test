@@ -13,7 +13,6 @@
     <plugin name="cordova-plugin-dialogs" source="npm" />
     <plugin name="cordova-plugin-keyboard" source="npm" />
     <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" version="4.1.3"/>
-    <plugin name="cordova-plugin-statusbar" source="npm"/>
     <plugin name="cordova-plugin-enable-cleartext-traffic" source="npm"/>
 	
 	
@@ -86,10 +85,14 @@
         <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
     </platform>
     <platform name="android">   
+
+	    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity">
+   <application android:exported="true" />
+</edit-config>
 	    
 	 <allow-intent href="market:*" /> 
 	    
- 	<preference name="android-targetSdkVersion" value="33" />
+ 	<preference name="android-targetSdkVersion" value="32" />
 	    
         <icon density="ldpi" src="res/icons/android/ldpi.png" />
         <icon density="mdpi" src="res/icons/android/mdpi.png" />
