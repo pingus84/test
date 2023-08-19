@@ -84,12 +84,7 @@
         <splash src="res/screen/ios/Default@2x~ipad~anyany.png" />
         <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
     </platform>
-    <platform name="android">   
-
-	    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity">
-   <application android:exported="true" />
-</edit-config>
-	    
+    <platform name="android">       
 	 <allow-intent href="market:*" /> 
 	    
  	<preference name="android-targetSdkVersion" value="32" />
