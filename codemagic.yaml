@@ -124,8 +124,7 @@ workflows:
         script: |
           set -x
           set -e
-          cd /usr/local/share/android-sdk/build-tools/33.0.0/lib
-          ls
+          cp /usr/local/share/android-sdk/build-tools/33.0.0/lib/j8.jar /usr/local/share/android-sdk/build-tools/33.0.0/lib/jx.jar
           export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
           #cordova build android
           #cordova run android --prod --release -- -- --gradleArg=-PcdvMinSdkVersion=20
