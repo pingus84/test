@@ -39,7 +39,7 @@
             <string>fr-FR</string>
 </config-file>
 
-
+<preference name="AndroidXEnabled" value="true" />
     <preference name="exit-on-suspend" value="true" />	  
 
   <preference name="target-device" value="handset" />
