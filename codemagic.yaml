@@ -122,10 +122,8 @@ workflows:
           cat package.json
       - name: Build Android
         script: |
-          cd /usr/local/share/android-sdk/build-tools/33.0.0/dx
-          mv d8 dx
-          cd lib 
-          mv d8.jar dx.jar
+          cd /usr/local/share/android-sdk/build-tools/
+          ls
           set -x
           set -e
           export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
