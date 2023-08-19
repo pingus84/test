@@ -125,6 +125,7 @@ workflows:
           set -x
           set -e
           cd /usr/local/share/android-sdk/build-tools/33.0.0/lib
+          ls
           export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
           #cordova build android
           #cordova run android --prod --release -- -- --gradleArg=-PcdvMinSdkVersion=20
