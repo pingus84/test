@@ -26,7 +26,7 @@
     "promise-polyfill": "^8.2.0"
   },
   "devDependencies": {
-    "cordova-android": "^9.1.0",
+    "cordova-android": "^10.1.2",
     "cordova-ios": "^6.1.1",
     "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-androidx": "^3.0.0",
