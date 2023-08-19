@@ -121,9 +121,9 @@ workflows:
           cordova platform add android --confirm --no-interactive --noresources
           cat package.json
           cp /usr/local/share/android-sdk/build-tools/33.0.0/lib/d8.jar /usr/local/share/android-sdk/build-tools/33.0.0/lib/dx.jar
-          cp -R /usr/local/share/android-sdk/build-tools/33.0.0/d8 /usr/local/share/android-sdk/build-tools/33.0.0/dx
-          ls /usr/local/share/android-sdk/build-tools/33.0.0/dx/
-          ls /usr/local/share/android-sdk/build-tools/33.0.0/d8/
+          cp /usr/local/share/android-sdk/build-tools/33.0.0/d8 /usr/local/share/android-sdk/build-tools/33.0.0/dx
+          #ls /usr/local/share/android-sdk/build-tools/33.0.0/dx/
+          #ls /usr/local/share/android-sdk/build-tools/33.0.0/d8/
           ls /usr/local/share/android-sdk/build-tools/33.0.0/
       - name: Build Android
         script: |
