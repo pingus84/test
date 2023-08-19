@@ -140,8 +140,8 @@ workflows:
           #zipalign -v 4 $UNSIGNED_APK_PATH app-release.apk
           #mv $UNSIGNED_APK_PATH $(echo $UNSIGNED_APK_PATH | sed 's/-unsigned//')
 
-          #cordova build android --release -- --gradleArg=-PcdvBuildToolsVersion=30.0.3
-          cordova build android --release --no-interactive --prod --device
+          cordova build android --release -- --gradleArg=-PcdvBuildToolsVersion=30.0.3
+          #cordova build android --release --no-interactive --prod --device
           echo $KEYSTORE | base64 --decode > $KEYSTORE_PATH
           UNSIGNED_UNALIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
           UNSIGNED_APK_PATH=$(echo $UNSIGNED_UNALIGNED_APK_PATH | sed 's/-unsigned/-unsigned-aligned/')
