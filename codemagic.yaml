@@ -122,7 +122,7 @@ workflows:
           cat package.json
       - name: Build Android
         script: |
-          cd /usr/local/share/android-sdk/build-tools/
+          cd /usr/local/share/android-sdk/build-tools/33.0.0
           ls
           set -x
           set -e
