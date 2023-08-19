@@ -106,7 +106,7 @@
 
 	<plugin name="cordova-plugin-inappbrowser" source="npm"/>
 
-	<preference name="SplashScreenDelay" value="0" />
+	<preference name="SplashScreenDelay" value="-1" />
 
 
 
