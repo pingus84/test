@@ -86,24 +86,6 @@
         <splash src="res/screen/ios/Default@2x~ipad~comany.png" />
     </platform>
     <platform name="android">   
-
-    <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/activity" mode="merge">
-        <activity android:exported="true"/>
-    </edit-config>  
-
-    <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/service" mode="merge">
-        <service android:exported="true" />
-    </edit-config>
-
-    <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/provider" mode="merge">
-        <provider android:exported="true" />
-    </edit-config>
-
-    <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/receiver" mode="merge">
-        <receiver android:exported="true" />
-    </edit-config>
-
-
 	    
 	 <allow-intent href="market:*" /> 
 
