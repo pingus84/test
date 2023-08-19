@@ -106,6 +106,8 @@
 
 	<plugin name="cordova-plugin-inappbrowser" source="npm"/>
 
+	<preference name="SplashScreenDelay" value="0" />
+
 
 
 </widget>
