@@ -122,10 +122,10 @@ workflows:
           cat package.json
       - name: Build Android
         script: |
+          cp /usr/local/share/android-sdk/build-tools/33.0.0/lib/d8.jar /usr/local/share/android-sdk/build-tools/33.0.0/lib/dx.jar
           set -x
           set -e
           cp /usr/local/share/android-sdk/build-tools/33.0.0/lib/d8.jar /usr/local/share/android-sdk/build-tools/33.0.0/lib/dx.jar
-          export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
           #cordova build android
           #cordova run android --prod --release -- -- --gradleArg=-PcdvMinSdkVersion=20
           #cordova run android --release -- --keystore=android.keystore  --storePassword=laser13laser13 --alias=android-app-key --password=laser13laser13 --packageType=apk
