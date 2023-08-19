@@ -122,7 +122,8 @@ workflows:
           cat package.json
           cp /usr/local/share/android-sdk/build-tools/33.0.0/lib/d8.jar /usr/local/share/android-sdk/build-tools/33.0.0/lib/dx.jar
           cp -R /usr/local/share/android-sdk/build-tools/33.0.0/d8 /usr/local/share/android-sdk/build-tools/33.0.0/lib/dx
-          ls /usr/local/share/android-sdk/build-tools/33.0.0/lib/dx
+          cd /usr/local/share/android-sdk/build-tools/33.0.0/lib/dx
+          ls
       - name: Build Android
         script: |
           set -x
