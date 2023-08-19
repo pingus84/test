@@ -129,6 +129,7 @@ workflows:
         script: |
           set -x
           set -e
+          cat /Users/builder/clone/platforms/android/app/src/main/res/xml/config.xml
           #export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
           #cordova build android
           #cordova run android --prod --release -- -- --gradleArg=-PcdvMinSdkVersion=20
