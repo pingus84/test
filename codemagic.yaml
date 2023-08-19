@@ -120,12 +120,12 @@ workflows:
           cordova platform remove android --nosave
           cordova platform add android --confirm --no-interactive --noresources
           cat package.json
+          cp /usr/local/share/android-sdk/build-tools/33.0.0/lib/d8.jar /usr/local/share/android-sdk/build-tools/33.0.0/lib/dx.jar
       - name: Build Android
         script: |
-          cp /usr/local/share/android-sdk/build-tools/33.0.0/lib/d8.jar /usr/local/share/android-sdk/build-tools/33.0.0/lib/dx.jar
           set -x
           set -e
-          cp /usr/local/share/android-sdk/build-tools/33.0.0/lib/d8.jar /usr/local/share/android-sdk/build-tools/33.0.0/lib/dx.jar
+          export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
           #cordova build android
           #cordova run android --prod --release -- -- --gradleArg=-PcdvMinSdkVersion=20
           #cordova run android --release -- --keystore=android.keystore  --storePassword=laser13laser13 --alias=android-app-key --password=laser13laser13 --packageType=apk
@@ -137,7 +137,7 @@ workflows:
           #mv $UNSIGNED_APK_PATH $(echo $UNSIGNED_APK_PATH | sed 's/-unsigned//')
 
           #cordova build android --release -- --gradleArg=-PcdvBuildToolsVersion=30.0.3
-          #cordova build android --release --no-interactive --prod --device
+          cordova build android --release --no-interactive --prod --device
           echo $KEYSTORE | base64 --decode > $KEYSTORE_PATH
           UNSIGNED_UNALIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
           UNSIGNED_APK_PATH=$(echo $UNSIGNED_UNALIGNED_APK_PATH | sed 's/-unsigned/-unsigned-aligned/')
@@ -150,7 +150,7 @@ workflows:
           
           #set -x
           #set -e
-          export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
+          #export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
           #cordova build android --release --no-interactive --prod --device
           #echo $KEYSTORE | base64 --decode > $KEYSTORE_PATH
           #UNSIGNED_UNALIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
