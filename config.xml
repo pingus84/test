@@ -87,8 +87,9 @@
     <platform name="android">   
 
 	 <allow-intent href="market:*" /> 
-	<preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen/android/splash-port-xxxhdpi.png" />
-	<color name="cdv_splashscreen_background">#000000</color>
+	<preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen/android/logo.png" />
+	
+	  <preference name="AndroidWindowSplashScreenBackground" value="#000000" />
  	<preference name="android-targetSdkVersion" value="33" />
 	    
         <icon density="ldpi" src="res/icons/android/ldpi.png" />
