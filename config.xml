@@ -87,7 +87,7 @@
     <platform name="android">   
 
 	 <allow-intent href="market:*" /> 
-	<preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen/android/logo.png" />
+	<preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen/android/LOGO.png" />
 	
 	  <preference name="AndroidWindowSplashScreenBackground" value="#000000" />
  	<preference name="android-targetSdkVersion" value="33" />
