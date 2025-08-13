@@ -106,15 +106,14 @@ workflows:
         PACKAGE_NAME: "com.application.laser13"
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       node: v16
-      xcode: 16.3
       #java: 1.8
     scripts:
       - name: Install dependencies
         script: |
           npm install
           npm ci
-          cvm install 9.0.0
-          cvm use 9.0.0        
+          cvm install
+          cvm use        
       - name: Add Android platform
         script: |
           set -x
