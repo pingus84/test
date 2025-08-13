@@ -92,12 +92,7 @@
 	  <preference name="AndroidWindowSplashScreenBackground" value="#000000" />
 
 
-<preference name="android-buildToolsVersion" value="35.0.0" />
-		<preference name="GradlePluginKotlinVersion" value="1.9.24" />
-<preference name="AndroidXAppCompatVersion" value="1.7.0" />
-<preference name="AndroidXWebKitVersion" value="1.12.1" />
-		 	<preference name="GradlePluginGoogleServicesVersion" value="4.4.2" />
-		<preference name="AndroidGradlePluginVersion" value="8.7.3" />
+
 		<preference name="android-targetSdkVersion" value="35" />
 		<preference name="android-compileSdkVersion" value="35" />
 
