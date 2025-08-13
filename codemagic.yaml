@@ -131,7 +131,7 @@ workflows:
           set -x
           set -e
           cat /Users/builder/clone/platforms/android/app/src/main/res/xml/config.xml
-          gradle wrapper --gradle-version 8.13
+        
           cordova prepare
           #export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
           #cordova build android
