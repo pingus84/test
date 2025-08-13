@@ -13,7 +13,7 @@ workflows:
         XCODE_WORKSPACE: "platforms/ios/Laser13.xcworkspace" # <-- Put the name of your workspace here.
         XCODE_SCHEME: "Laser13" # <-- Put the name of your scheme here.       
         BUNDLE_ID: "com.application.laser13" # <-- Put your Bundle Id here.
-      xcode: latest
+      xcode: 16.3
       node: v16.11.1
       npm: 6
     cache:
@@ -106,6 +106,7 @@ workflows:
         PACKAGE_NAME: "com.application.laser13"
         KEYSTORE_PATH: '/tmp/keystore.keystore'
       node: v16
+      xcode: 16.3
       #java: 1.8
     scripts:
       - name: Install dependencies
