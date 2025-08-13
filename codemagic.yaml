@@ -157,7 +157,7 @@ workflows:
           
           #set -x
           #set -e
-          export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
+          #export ORG_GRADLE_PROJECT_cdvMinSdkVersion=22
           #cordova build android --release --no-interactive --prod --device
           #echo $KEYSTORE | base64 --decode > $KEYSTORE_PATH
           #UNSIGNED_UNALIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
