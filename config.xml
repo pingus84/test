@@ -12,7 +12,7 @@
     <plugin name="cordova-plugin-statusbar" source="npm" />
     <plugin name="cordova-plugin-dialogs" source="npm" />
     <plugin name="cordova-plugin-keyboard" source="npm" />
-	<plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm" >
+	<plugin name="cordova-plugin-fcm-with-dependecy-updated-12" source="npm" >
 
 		    <variable name="ANDROID_DEFAULT_NOTIFICATION_ICON" value="@mipmap/ic_launcher" />
     <variable name="ANDROID_FCM_VERSION" value="23.0.8" />
