@@ -113,8 +113,8 @@ workflows:
           npm install
           npm ci
           cvm list
-          cvm install 9.0.0
-          cvm use 9.0.0  
+          cvm install 6.2.3
+          cvm use 6.2.3  
       - name: Add Android platform
         script: |
           set -x
