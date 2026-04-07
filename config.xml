@@ -103,7 +103,7 @@
 	
 	  <preference name="AndroidWindowSplashScreenBackground" value="#000000" />
 
-
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
 		<preference name="android-minSdkVersion" value="24" />
 		<preference name="android-buildToolsVersion" value="35.0.0" />
