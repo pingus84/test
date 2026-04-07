@@ -117,6 +117,8 @@ workflows:
       - name: Add Android platform
         script: |
           set -x
+          npm uninstall @ionic-native/fcm # Ionic support is included and conflicts with @ionic-native's implementation.
+          npm install cordova-plugin-fcm-with-dependecy-updated@git+https://github.com/4sh/cordova-plugin-fcm-with-dependecy-updated.git#7.10.0
           cordova platform remove android --nosave
           cordova platform add android --confirm --no-interactive --noresources
           cat package.json
