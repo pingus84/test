@@ -24,8 +24,8 @@ workflows:
         script: |
           npm install
           npm ci
-          cvm install 9.0.0
-          cvm use 9.0.0
+          cvm install 6.2.3
+          cvm use 6.2.3
       - name: Setup iOS
         script: |
           cordova platform remove ios --nosave
