@@ -12,6 +12,7 @@
     <plugin name="cordova-plugin-statusbar" source="npm" />
     <plugin name="cordova-plugin-dialogs" source="npm" />
     <plugin name="cordova-plugin-keyboard" source="npm" />
+	  <plugin name="cordova-plugin-notifications-permission" source="npm" />
 	<plugin name="cordova-plugin-fcm-with-dependecy-updated-12" source="npm" >
 
 		    <variable name="ANDROID_DEFAULT_NOTIFICATION_ICON" value="@mipmap/ic_launcher" />
@@ -103,7 +104,7 @@
 	
 	  <preference name="AndroidWindowSplashScreenBackground" value="#000000" />
 
-<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
 
 		<preference name="android-minSdkVersion" value="24" />
 		<preference name="android-buildToolsVersion" value="35.0.0" />
