@@ -1,44 +1,21 @@
 
-var TARIFURL="https://www.laser13.fr/tarif.php";
-var PUSHURL="https://www.laser13.fr/majpush.php"; // stocker id push
-var BONUSURL="https://www.laser13.fr/centre/bonus.php";
-var NEWSURL="https://www.laser13.fr/a.php";
-var MAJURL="https://www.laser13.fr/maj.php"; //permet de savoir quel fichier a mettre a jour
-var LOGINURL="https://www.laser13.fr/b.php"; //connection
-var CONTACTURL="https://www.laser13.fr/contact.php";
-var FIDELITEURL="https://www.laser13.fr/centre/index.php?mail=";
-var CREECOMPTEURL="https://www.laser13.fr/creecompte.php";
-var MISEAJOURCOMPTE="https://www.laser13.fr/miseajourcompte.php";
-var RECUPURL = "https://www.laser13.fr/centre/recup_mail.php";
-var SUPPRIMURL = "https://www.laser13.fr/centre/suppr_mail.php";
-var tarifidrecu;
-var newsidrecu;
-var contactidrecu;
-var regid;
-
-function logHasPermissionOnStart() {
-  FCM.hasPermission().then(function (hasIt) {
-  });
-}
-
-
 
 function notifauto() {
 /* Your code. (Make sure to not alert(status) until splashscreen
  * has been hidden with navigator.splashscreen.hide() 
  * else alert might not show and your app seems to stall.)
  */
-let permissionPlugin = window.cordova.notifications_permission;
-let rationaleTitle = "Notification Permission";
-let rationaleMsg = "You really need to give permission!";
-let rationaleOkButton = "OK";
-let rationaleCancelButton = "Not now";
-let rationaleTheme = permissionPlugin.themes.Theme_DeviceDefault_Dialog_Alert;
-let lastResortTitle = "Notification Permission!";
-let lastResortMsg = "You really need to give permission! Now the only way left is through system settings.";
-let lastResortOkButton = "Settings";
-let lastResortCancelButton = "No thanks";
-let lastResortTheme = permissionPlugin.themes.Theme_DeviceDefault_Dialog_Alert;
+var permissionPlugin = window.cordova.notifications_permission;
+var rationaleTitle = "Notification Permission";
+var rationaleMsg = "You really need to give permission!";
+var rationaleOkButton = "OK";
+var rationaleCancelButton = "Not now";
+var rationaleTheme = permissionPlugin.themes.Theme_DeviceDefault_Dialog_Alert;
+var lastResortTitle = "Notification Permission!";
+var lastResortMsg = "You really need to give permission! Now the only way left is through system settings.";
+var lastResortOkButton = "Settings";
+var lastResortCancelButton = "No thanks";
+var lastResortTheme = permissionPlugin.themes.Theme_DeviceDefault_Dialog_Alert;
 permissionPlugin.maybeAskPermission(
     function(status) {
         /* Permission is either granted, denied, or not needed. */
@@ -82,8 +59,31 @@ permissionPlugin.maybeAskPermission(
         theme: lastResortTheme
     }
 );
-/* END OF Your code */
+
 }		
+
+var TARIFURL="https://www.laser13.fr/tarif.php";
+var PUSHURL="https://www.laser13.fr/majpush.php"; // stocker id push
+var BONUSURL="https://www.laser13.fr/centre/bonus.php";
+var NEWSURL="https://www.laser13.fr/a.php";
+var MAJURL="https://www.laser13.fr/maj.php"; //permet de savoir quel fichier a mettre a jour
+var LOGINURL="https://www.laser13.fr/b.php"; //connection
+var CONTACTURL="https://www.laser13.fr/contact.php";
+var FIDELITEURL="https://www.laser13.fr/centre/index.php?mail=";
+var CREECOMPTEURL="https://www.laser13.fr/creecompte.php";
+var MISEAJOURCOMPTE="https://www.laser13.fr/miseajourcompte.php";
+var RECUPURL = "https://www.laser13.fr/centre/recup_mail.php";
+var SUPPRIMURL = "https://www.laser13.fr/centre/suppr_mail.php";
+var tarifidrecu;
+var newsidrecu;
+var contactidrecu;
+var regid;
+
+function logHasPermissionOnStart() {
+  FCM.hasPermission().then(function (hasIt) {
+  });
+}
+
 
 
 function trySomeTimes(asyncFunc, onSuccess, onFailure, customTries) {
@@ -364,10 +364,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-
-
-	notifauto();
-		
+		 
 	ons.disableAutoStatusBarFill() ;
 	
 	
