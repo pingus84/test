@@ -409,7 +409,7 @@ window.localStorage.setItem("os", plateos);
 
 
 	//push
-        
+        notifauto();
     },
 
 onPause: function() {
