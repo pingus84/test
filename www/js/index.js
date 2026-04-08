@@ -383,6 +383,9 @@ window.localStorage.setItem("os", plateos);
 		 //   window.open = cordova.InAppBrowser.open;
 
         ons.setDefaultDeviceBackButtonListener(function() {
+
+			navigator.app.exitApp();
+			/*
             if (navigator.notification.confirm("Voulez vous quitter?", 
                 function(index) {
                     if (index == 1) { // OK button
@@ -390,6 +393,7 @@ window.localStorage.setItem("os", plateos);
                     }
                 }
             ,"Laser13"),"Oui,Non" );
+			*/
         });
 /*
         // Open any external link with InAppBrowser Plugin
