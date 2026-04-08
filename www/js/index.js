@@ -280,7 +280,7 @@ function setupOnNotification() {
 	
 		notif(data.detail);
     },
-    true
+    false
   );
   FCM.getInitialPushPayload()
     .then((payload) => {
@@ -389,7 +389,7 @@ window.localStorage.setItem("os", plateos);
                         navigator.app.exitApp(); // Close the app
                     }
                 }
-            ,"Laser13"),["Oui","Non"] );
+            ,"Laser13"),"Oui,Non" );
         });
 /*
         // Open any external link with InAppBrowser Plugin
