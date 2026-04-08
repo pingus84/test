@@ -31,7 +31,7 @@ permissionPlugin.maybeAskPermission(
             case permissionPlugin.DENIED_PERMANENTLY_NEWLY:
             case permissionPlugin.DENIED_NOT_PERMANENTLY_ALREADY:
             case permissionPlugin.DENIED_PERMANENTLY_ALREADY:
-            case permissionPlugin.DENIED_PERMANENTLY_ALREADY_AFTER_SETTINGS
+            case permissionPlugin.DENIED_PERMANENTLY_ALREADY_AFTER_SETTINGS:
             case permissionPlugin.DENIED_THROUGH_RATIONALE_DIALOG:
             case permissionPlugin.DENIED_THROUGH_LAST_RESORT_DIALOG:
             case permissionPlugin.NOT_ANDROID:
