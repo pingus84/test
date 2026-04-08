@@ -277,7 +277,10 @@ function setupOnNotification() {
   FCM.eventTarget.addEventListener(
     "notification",
     function (data) {
-
+		ons.notification.alert({
+				title:'Erreur',
+				messageHTML: data
+				});
 		notif(data.detail);
     },
     false
