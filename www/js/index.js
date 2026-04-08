@@ -280,14 +280,10 @@ function setupOnNotification() {
 	
 		notif(data.detail);
     },
-    false
+    true
   );
   FCM.getInitialPushPayload()
     .then((payload) => {
-	ons.notification.alert({
-				title:'Erreur',
-				messageHTML: payload
-				});
 	notif(payload);
     })
     .catch((error) => {
