@@ -277,13 +277,14 @@ function setupOnNotification() {
   FCM.eventTarget.addEventListener(
     "notification",
     function (data) {
-	
+		alert('notif1');
 		notif(data.detail);
     },
     false
   );
   FCM.getInitialPushPayload()
     .then((payload) => {
+		alert('notif2');
 	notif(payload);
     })
     .catch((error) => {
